@@ -1,11 +1,28 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { MagnifyingGlassIcon, CalendarIcon, ClockIcon, UserIcon } from '@heroicons/react/24/outline';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
+  MagnifyingGlassIcon,
+  CalendarIcon,
+  ClockIcon,
+  UserIcon,
+} from '@heroicons/react/24/outline';
 import { cms } from '@/lib/cms';
 import { BlogPost } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
@@ -25,15 +42,15 @@ export default function Blog() {
         const data = await cms.getBlogPosts();
         setPosts(data);
         setFilteredPosts(data);
-        
+
         // Get unique categories
         const uniqueCategories = [...new Set(data.map(post => post.category))];
         setCategories(uniqueCategories);
       } catch (error) {
         toast({
-          title: "Error loading blog posts",
-          description: "Please try again later",
-          variant: "destructive"
+          title: 'Error loading blog posts',
+          description: 'Please try again later',
+          variant: 'destructive',
         });
       } finally {
         setLoading(false);
@@ -48,11 +65,14 @@ export default function Blog() {
 
     // Apply search filter
     if (searchQuery) {
-      filtered = filtered.filter(post =>
-        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+      filtered = filtered.filter(
+        post =>
+          post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          post.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          post.tags.some(tag =>
+            tag.toLowerCase().includes(searchQuery.toLowerCase())
+          )
       );
     }
 
@@ -85,7 +105,8 @@ export default function Blog() {
               Technical Blog
             </h1>
             <p className="mt-6 text-lg leading-8 text-secondary-foreground/90">
-              Insights, innovations, and technical guidance from the world of GFRP materials
+              Insights, innovations, and technical guidance from the world of
+              GFRP materials
             </p>
           </div>
         </div>
@@ -101,19 +122,22 @@ export default function Blog() {
               <Input
                 placeholder="Search articles..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={e => setSearchQuery(e.target.value)}
                 className="pl-10"
               />
             </div>
 
             {/* Category Filter */}
-            <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+            <Select
+              value={selectedCategory}
+              onValueChange={setSelectedCategory}
+            >
               <SelectTrigger className="w-full lg:w-48">
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All Categories</SelectItem>
-                {categories.map((category) => (
+                {categories.map(category => (
                   <SelectItem key={category} value={category}>
                     {category}
                   </SelectItem>
@@ -148,7 +172,9 @@ export default function Blog() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {filteredPosts.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-lg text-muted-foreground">No articles found matching your criteria.</p>
+              <p className="text-lg text-muted-foreground">
+                No articles found matching your criteria.
+              </p>
               <Button
                 variant="outline"
                 className="mt-4"
@@ -162,8 +188,11 @@ export default function Blog() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post) => (
-                <Card key={post.id} className="bg-card shadow-card hover:shadow-elevated transition-shadow">
+              {filteredPosts.map(post => (
+                <Card
+                  key={post.id}
+                  className="bg-card shadow-card hover:shadow-elevated transition-shadow"
+                >
                   {/* Featured Image */}
                   {post.featuredImage ? (
                     <img
@@ -183,10 +212,12 @@ export default function Blog() {
                         {new Date(post.date).toLocaleDateString()}
                       </div>
                     </div>
-                    <CardTitle className="text-xl leading-tight">{post.title}</CardTitle>
+                    <CardTitle className="text-xl leading-tight">
+                      {post.title}
+                    </CardTitle>
                     <CardDescription>{post.excerpt}</CardDescription>
                   </CardHeader>
-                  
+
                   <CardContent className="space-y-4">
                     {/* Author and Read Time */}
                     <div className="flex items-center justify-between text-sm text-muted-foreground">
@@ -203,8 +234,12 @@ export default function Blog() {
                     {/* Tags */}
                     <div>
                       <div className="flex flex-wrap gap-1">
-                        {post.tags.slice(0, 3).map((tag) => (
-                          <Badge key={tag} variant="secondary" className="text-xs">
+                        {post.tags.slice(0, 3).map(tag => (
+                          <Badge
+                            key={tag}
+                            variant="secondary"
+                            className="text-xs"
+                          >
                             {tag}
                           </Badge>
                         ))}
@@ -238,13 +273,11 @@ export default function Blog() {
               Stay Updated
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Get the latest insights on GFRP technology, industry trends, and technical innovations 
-              delivered directly to your inbox.
+              Get the latest insights on GFRP technology, industry trends, and
+              technical innovations delivered directly to your inbox.
             </p>
             <Link to="/contact">
-              <Button size="lg">
-                Subscribe to Updates
-              </Button>
+              <Button size="lg">Subscribe to Updates</Button>
             </Link>
           </div>
         </div>
