@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Dialog } from '@headlessui/react';
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Materials', href: '/materials' },
-  { name: 'Case Studies', href: '/case-studies' },
+  { name: 'About', href: '/about' },
+  { name: 'Benefits Of GFRP', href: '/benefits' },
+  // { name: 'Materials', href: '/materials' },
+  // { name: 'Case Studies', href: '/case-studies' },
   { name: 'Blog', href: '/blog' },
   { name: 'Gallery', href: '/gallery' },
-  { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' }
 ];
 
@@ -30,10 +31,11 @@ export function Header() {
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Vegnar GFRP</span>
             <div className="flex items-center space-x-2">
-              <div className="h-8 w-8 bg-gradient-to-br from-primary to-primary-glow rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">V</span>
-              </div>
-              <span className="text-xl font-bold text-secondary">Vegnar GFRP</span>
+              <img 
+                src="/images/gfrp_logo.png" 
+                alt="Vegnar GFRP Logo" 
+                className="h-8 w-auto"
+              />
             </div>
           </Link>
         </div>
@@ -65,13 +67,7 @@ export function Header() {
           ))}
         </div>
         
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
-          <Link to="/search">
-            <Button variant="ghost" size="sm">
-              <MagnifyingGlassIcon className="h-4 w-4" />
-              <span className="sr-only">Search</span>
-            </Button>
-          </Link>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link to="/contact">
             <Button variant="default" size="sm">
               Get Quote
@@ -87,9 +83,11 @@ export function Header() {
             <Link to="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
               <span className="sr-only">Vegnar GFRP</span>
               <div className="flex items-center space-x-2">
-                <div className="h-8 w-8 bg-gradient-to-br from-primary to-primary-glow rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">V</span>
-                </div>
+                <img 
+                  src="/images/gfrp_logo.png" 
+                  alt="Vegnar GFRP Logo" 
+                  className="h-8 w-auto"
+                />
                 <span className="text-xl font-bold text-secondary">Vegnar GFRP</span>
               </div>
             </Link>
