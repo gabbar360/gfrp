@@ -1,56 +1,56 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+} from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import { useToast } from "@/hooks/use-toast";
-import { ContactFormData } from "@/lib/types";
+} from '@/components/ui/select';
+import { Checkbox } from '@/components/ui/checkbox';
+import { useToast } from '@/hooks/use-toast';
+import { ContactFormData } from '@/lib/types';
 import {
   EnvelopeIcon,
   PhoneIcon,
   MapPinIcon,
   ClockIcon,
   PaperAirplaneIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 export default function Contact() {
   const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
-    email: "",
-    company: "",
-    phone: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    subject: '',
+    message: '',
     materialInterest: [],
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleInputChange = (field: keyof ContactFormData, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
+    setFormData(prev => ({ ...prev, [field]: value }));
   };
 
   const handleMaterialInterestChange = (material: string, checked: boolean) => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
       materialInterest: checked
         ? [...(prev.materialInterest || []), material]
-        : (prev.materialInterest || []).filter((m) => m !== material),
+        : (prev.materialInterest || []).filter(m => m !== material),
     }));
   };
 
@@ -60,28 +60,28 @@ export default function Contact() {
 
     try {
       // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await new Promise(resolve => setTimeout(resolve, 1500));
 
       toast({
-        title: "Message sent successfully!",
+        title: 'Message sent successfully!',
         description: "We'll get back to you within 24 hours.",
       });
 
       // Reset form
       setFormData({
-        name: "",
-        email: "",
-        company: "",
-        phone: "",
-        subject: "",
-        message: "",
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        subject: '',
+        message: '',
         materialInterest: [],
       });
     } catch (error) {
       toast({
-        title: "Error sending message",
-        description: "Please try again later or contact us directly.",
-        variant: "destructive",
+        title: 'Error sending message',
+        description: 'Please try again later or contact us directly.',
+        variant: 'destructive',
       });
     } finally {
       setIsSubmitting(false);
@@ -136,8 +136,8 @@ export default function Contact() {
                         id="name"
                         required
                         value={formData.name}
-                        onChange={(e) =>
-                          handleInputChange("name", e.target.value)
+                        onChange={e =>
+                          handleInputChange('name', e.target.value)
                         }
                         placeholder="Your full name"
                         className="h-12 border-2 border-gray-200 focus:border-primary transition-colors"
@@ -155,8 +155,8 @@ export default function Contact() {
                         type="email"
                         required
                         value={formData.email}
-                        onChange={(e) =>
-                          handleInputChange("email", e.target.value)
+                        onChange={e =>
+                          handleInputChange('email', e.target.value)
                         }
                         placeholder="your.email@company.com"
                         className="h-12 border-2 border-gray-200 focus:border-primary transition-colors"
@@ -175,8 +175,8 @@ export default function Contact() {
                       <Input
                         id="company"
                         value={formData.company}
-                        onChange={(e) =>
-                          handleInputChange("company", e.target.value)
+                        onChange={e =>
+                          handleInputChange('company', e.target.value)
                         }
                         placeholder="Your company name"
                         className="h-12 border-2 border-gray-200 focus:border-primary transition-colors"
@@ -193,8 +193,8 @@ export default function Contact() {
                         id="phone"
                         type="tel"
                         value={formData.phone}
-                        onChange={(e) =>
-                          handleInputChange("phone", e.target.value)
+                        onChange={e =>
+                          handleInputChange('phone', e.target.value)
                         }
                         placeholder="+91 12345 67890"
                         className="h-12 border-2 border-gray-200 focus:border-primary transition-colors"
@@ -213,8 +213,8 @@ export default function Contact() {
                       id="message"
                       required
                       value={formData.message}
-                      onChange={(e) =>
-                        handleInputChange("message", e.target.value)
+                      onChange={e =>
+                        handleInputChange('message', e.target.value)
                       }
                       placeholder="Please describe your project requirements, technical specifications, or any specific questions you have about our GFRP materials..."
                       rows={6}
