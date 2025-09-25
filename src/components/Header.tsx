@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Dialog } from '@headlessui/react';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Dialog } from "@headlessui/react";
 
 const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Benefits Of GFRP', href: '/benefits' },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Benefits Of GFRP", href: "/benefits" },
   // { name: 'Materials', href: '/materials' },
   // { name: 'Case Studies', href: '/case-studies' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Gallery', href: '/gallery' },
-  { name: 'Contact', href: '/contact' }
+  { name: "Blog", href: "/blog" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export function Header() {
@@ -20,26 +20,29 @@ export function Header() {
   const location = useLocation();
 
   const isActive = (href: string) => {
-    if (href === '/') return location.pathname === '/';
+    if (href === "/") return location.pathname === "/";
     return location.pathname.startsWith(href);
   };
 
   return (
     <header className="bg-card shadow-sm border-b sticky top-0 z-40">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Vegnar GFRP</span>
             <div className="flex items-center space-x-2">
-              <img 
-                src="/images/gfrp_logo.png" 
-                alt="Vegnar GFRP Logo" 
+              <img
+                src="/images/gfrp_logo.png"
+                alt="Vegnar GFRP Logo"
                 className="h-8 w-auto"
               />
             </div>
           </Link>
         </div>
-        
+
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -50,45 +53,50 @@ export function Header() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        
-        <div className="hidden lg:flex lg:gap-x-8">
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-6">
           {navigation.map((item) => (
             <Link
               key={item.name}
               to={item.href}
-              className={`text-sm font-semibold transition-colors ${
+              className={`text-sm font-medium whitespace-nowrap transition-colors ${
                 isActive(item.href)
-                  ? 'text-primary'
-                  : 'text-foreground hover:text-primary'
+                  ? "text-primary"
+                  : "text-foreground hover:text-primary"
               }`}
             >
               {item.name}
             </Link>
           ))}
-        </div>
-        
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to="/contact">
+          <Link to="/get-quote">
             <Button variant="default" size="sm">
               Get Quote
             </Button>
           </Link>
         </div>
       </nav>
-      
-      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
         <div className="fixed inset-0 z-50" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-card px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-border">
           <div className="flex items-center justify-between">
-            <Link to="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
+            <Link
+              to="/"
+              className="-m-1.5 p-1.5"
+              onClick={() => setMobileMenuOpen(false)}
+            >
               <span className="sr-only">Vegnar GFRP</span>
               <div className="flex items-center space-x-2">
-                <img 
-                  src="/images/gfrp_logo.png" 
-                  alt="Vegnar GFRP Logo" 
+                <img
+                  src="/images/gfrp_logo.png"
+                  alt="Vegnar GFRP Logo"
                   className="h-8 w-auto"
                 />
-                <span className="text-xl font-bold text-secondary">Vegnar GFRP</span>
               </div>
             </Link>
             <button
@@ -109,8 +117,8 @@ export function Header() {
                     to={item.href}
                     className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold transition-colors ${
                       isActive(item.href)
-                        ? 'text-primary bg-accent'
-                        : 'text-foreground hover:text-primary hover:bg-accent'
+                        ? "text-primary bg-accent"
+                        : "text-foreground hover:text-primary hover:bg-accent"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -119,7 +127,7 @@ export function Header() {
                 ))}
               </div>
               <div className="py-6">
-                <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/get-quote" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="default" className="w-full">
                     Get Quote
                   </Button>

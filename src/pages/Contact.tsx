@@ -270,24 +270,23 @@ export default function Contact() {
                   <div className="flex items-center gap-3">
                     <PhoneIcon className="h-5 w-5 text-primary" />
                     <div>
-                      <p className="font-medium">+91 84690 22953</p>
-                      <p className="font-medium">+91 75673 62291</p>
+                      <p className="font-medium">+91 90333 31031 </p>
+                      <p className="font-medium">+91 90333 31005</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <EnvelopeIcon className="h-5 w-5 text-primary" />
                     <div>
-                      <p className="font-medium">info@vegnargfrp.com</p>
-                      <p className="font-medium">technical@vegnargfrp.com</p>
+                      <p className="font-medium">sales@vegnar.com</p>
+                      {/* <p className="font-medium">technical@vegnargfrp.com</p> */}
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <ClockIcon className="h-5 w-5 text-primary" />
                     <div>
                       <p className="font-medium">
-                        Mon - Fri: 9:00 AM - 6:00 PM
+                        Mon - Sat: 10:00 AM - 7:00 PM
                       </p>
-                      <p className="font-medium">Sat: 9:00 AM - 2:00 PM</p>
                     </div>
                   </div>
                 </div>

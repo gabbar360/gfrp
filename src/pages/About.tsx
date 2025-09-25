@@ -103,22 +103,22 @@ export default function About() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,154,0,0.15),transparent_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.15),transparent_70%)]" />
         
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-secondary/20 px-6 py-3 rounded-full border border-primary/30 mb-8">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
               <span className="text-sm font-semibold text-primary">About VEGNAR GFRP</span>
             </div>
             
-            <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 VEGNAR GFRP
               </span>
               <br />
-              <span className="text-5xl md:text-6xl">Engineering Excellence</span>
+              <span className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl">Engineering Excellence</span>
             </h1>
             
-            <p className="text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
               Pioneering the future of composite reinforcement with 25+ years of innovation, 
               advanced manufacturing, and unwavering commitment to engineering excellence.
             </p>
@@ -127,8 +127,8 @@ export default function About() {
       </section>
 
       {/* Company Overview - Enhanced */}
-      <section className="py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full border border-primary/20 mb-8">
@@ -136,7 +136,7 @@ export default function About() {
                 <span className="text-sm font-semibold text-primary">Our Legacy</span>
               </div>
               
-              <h2 className="text-5xl font-bold mb-8 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
                 <span className="bg-gradient-to-r from-gray-900 to-primary bg-clip-text text-transparent">
                   25+ Years of
                 </span>
@@ -145,14 +145,14 @@ export default function About() {
               </h2>
               
               <div className="space-y-6 mb-10">
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
                   VEGNAR GFRP stands at the forefront of composite reinforcement technology, pioneering 
                   advanced Glass Fiber Reinforced Polymer solutions that transform construction standards. 
                   Our state-of-the-art manufacturing processes deliver superior GFRP products that exceed 
                   industry expectations for strength, durability, and performance.
                 </p>
                 
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
                   From marine structures to high-rise buildings, our GFRP reinforcement solutions provide 
                   unmatched corrosion resistance, electromagnetic transparency, and thermal insulation 
                   properties. We serve diverse industries including construction, infrastructure, chemical 
@@ -193,8 +193,8 @@ export default function About() {
       </section>
 
       {/* Technical Capabilities */}
-      <section className="py-32 bg-gradient-to-br from-slate-50 to-blue-50/30">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-slate-50 to-blue-50/30">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-20">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-4 py-2 rounded-full border border-blue-500/20 mb-8">
               <CogIcon className="w-4 h-4 text-blue-600" />
@@ -237,8 +237,8 @@ export default function About() {
       </section>
 
       {/* Company Values */}
-      <section className="py-32 bg-muted">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-16 sm:py-24 lg:py-32 bg-muted">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-20">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 px-4 py-2 rounded-full border border-emerald-500/20 mb-8">
               <TrophyIcon className="w-4 h-4 text-emerald-600" />
@@ -281,8 +281,8 @@ export default function About() {
       </section>
 
       {/* Company Statistics */}
-      <section className="py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-20">
             <h2 className="text-5xl font-bold text-white mb-8 leading-tight">
               VEGNAR GFRP by the Numbers
@@ -329,8 +329,8 @@ export default function About() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-32 bg-gradient-to-br from-primary/10 to-secondary/10">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-primary/10 to-secondary/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-5xl font-bold mb-8 leading-tight">
               <span className="bg-gradient-to-r from-gray-900 to-primary bg-clip-text text-transparent">
