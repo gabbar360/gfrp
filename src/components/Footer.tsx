@@ -35,10 +35,11 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="h-10 w-10 bg-gradient-to-br from-primary to-primary-glow rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">V</span>
-              </div>
-              <span className="text-2xl font-bold">Vegnar GFRP</span>
+              <img 
+                src="/images/gfrp_logo.png" 
+                alt="Vegnar GFRP Logo" 
+                className="h-10 w-auto"
+              />
             </div>
             <p className="text-sm text-secondary-foreground/80 mb-6 max-w-md">
               Leading manufacturer of Glass Fiber Reinforced Polymer (GFRP) products. 
@@ -50,11 +51,12 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <BuildingOfficeIcon className="h-5 w-5 text-primary" />
-                <span className="text-sm">Vegnar Industries, Gujarat, India</span>
+                <span className="text-sm">B-623 RK Iconic, Shital Park
+Rajkot, Gujarat 360006, India</span>
               </div>
               <div className="flex items-center space-x-3">
                 <PhoneIcon className="h-5 w-5 text-primary" />
-                <span className="text-sm">+91 84690 22953</span>
+                <span className="text-sm">+91 90333 31005</span>
               </div>
               <div className="flex items-center space-x-3">
                 <EnvelopeIcon className="h-5 w-5 text-primary" />
