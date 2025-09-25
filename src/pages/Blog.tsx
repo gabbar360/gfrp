@@ -164,9 +164,17 @@ export default function Blog() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.map((post) => (
                 <Card key={post.id} className="bg-card shadow-card hover:shadow-elevated transition-shadow">
-                  {/* Featured Image placeholder */}
-                  <div className="aspect-[16/9] bg-gradient-to-br from-muted to-muted/50 rounded-t-lg" />
-                  
+                  {/* Featured Image */}
+                  {post.featuredImage ? (
+                    <img
+                      src={post.featuredImage}
+                      alt={post.title}
+                      className="aspect-[16/9] w-full object-cover rounded-t-lg"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="aspect-[16/9] bg-gradient-to-br from-muted to-muted/50 rounded-t-lg" />
+                  )}
                   <CardHeader>
                     <div className="flex justify-between items-start mb-2">
                       <Badge variant="outline">{post.category}</Badge>
