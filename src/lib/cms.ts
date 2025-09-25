@@ -85,8 +85,73 @@ export class LocalCMS {
         author: "Engineering Team",
         category: "Technical",
         tags: ["GFRP", "steel", "comparison", "construction"],
-        featuredImage: "/images/blog-gfrp-vs-steel.jpg",
+  featuredImage: "https://images.unsplash.com/photo-1503389152951-9c3d0bca6b0d?auto=format&fit=crop&w=800&q=80", // GFRP rods
         readTime: 5
+      },
+      {
+        id: "bp-002",
+        slug: "gfrp-in-bridge-construction",
+        title: "How GFRP is Transforming Bridge Construction in India",
+        excerpt: "A look at recent bridge projects using GFRP for enhanced durability and reduced maintenance.",
+        content: "# How GFRP is Transforming Bridge Construction in India\n\nRecent infrastructure projects across India are leveraging GFRP for its corrosion resistance and lightweight properties...",
+        date: "2025-09-01",
+        author: "Project Insights",
+        category: "Infrastructure",
+        tags: ["GFRP", "bridge", "India", "infrastructure"],
+  featuredImage: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80", // Bridge construction
+        readTime: 4
+      },
+      {
+        id: "bp-003",
+        slug: "sustainability-gfrp",
+        title: "Sustainability Benefits of GFRP in Modern Construction",
+        excerpt: "Explore how GFRP supports green building initiatives and reduces environmental impact.",
+        content: "# Sustainability Benefits of GFRP in Modern Construction\n\nGFRP is not only strong and durable, but also supports sustainability goals by reducing lifecycle emissions...",
+        date: "2025-09-10",
+        author: "Green Build Team",
+        category: "Sustainability",
+        tags: ["GFRP", "sustainability", "green building"],
+  featuredImage: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80", // Sustainability/green
+        readTime: 6
+      },
+      {
+        id: "bp-004",
+        slug: "gfrp-vs-carbon-fiber",
+        title: "GFRP vs. Carbon Fiber: Which is Right for Your Project?",
+        excerpt: "A technical comparison between GFRP and carbon fiber for civil engineering applications.",
+        content: "# GFRP vs. Carbon Fiber: Which is Right for Your Project?\n\nBoth GFRP and carbon fiber have unique advantages. This article compares their properties, costs, and best use cases...",
+        date: "2025-09-15",
+        author: "Materials Lab",
+        category: "Technical",
+        tags: ["GFRP", "carbon fiber", "comparison"],
+  featuredImage: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80", // Composite materials
+        readTime: 7
+      },
+      {
+        id: "bp-005",
+        slug: "future-of-gfrp",
+        title: "The Future of GFRP: Trends and Innovations to Watch",
+        excerpt: "What’s next for GFRP? We explore upcoming trends, research, and product innovations.",
+        content: "# The Future of GFRP: Trends and Innovations to Watch\n\nFrom smart composites to new manufacturing techniques, GFRP is set to play a major role in the future of construction...",
+        date: "2025-09-20",
+        author: "Innovation Desk",
+        category: "Trends",
+        tags: ["GFRP", "future", "innovation", "trends"],
+  featuredImage: "https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?auto=format&fit=crop&w=800&q=80", // Product lineup
+        readTime: 5
+      },
+      {
+        id: "bp-006",
+        slug: "gfrp-installation-tips",
+        title: "Top 10 Tips for Installing GFRP Products Successfully",
+        excerpt: "Practical advice for engineers and contractors to ensure the best results with GFRP.",
+        content: "# Top 10 Tips for Installing GFRP Products Successfully\n\nProper installation is key to maximizing the benefits of GFRP. Here are 10 tips from our experts...",
+        date: "2025-09-22",
+        author: "Field Support Team",
+        category: "Practical",
+        tags: ["GFRP", "installation", "tips"],
+  featuredImage: "https://images.unsplash.com/photo-1461344577544-4e5dc9487184?auto=format&fit=crop&w=800&q=80", // Manufacturing
+        readTime: 4
       }
     ];
   }
