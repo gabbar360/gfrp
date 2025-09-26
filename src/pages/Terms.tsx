@@ -179,7 +179,7 @@ export default function Terms() {
                       Email Legal Team
                     </span>
                     <span className="text-foreground font-semibold">
-                      info@vegnargfrp.com
+                      sales@vegnar.com
                     </span>
                   </div>
                   <div className="flex flex-col items-center p-4 bg-background/50 rounded-lg">
