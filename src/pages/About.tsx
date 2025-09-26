@@ -151,8 +151,8 @@ export default function About() {
       </section>
 
       {/* Company Overview - Enhanced */}
-      <section className="py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-16 sm:py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full border border-primary/20 mb-8">
@@ -234,8 +234,8 @@ export default function About() {
       </section>
 
       {/* Technical Capabilities */}
-      <section className="py-32 bg-gradient-to-br from-slate-50 to-blue-50/30">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-slate-50 to-blue-50/30">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-20">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-4 py-2 rounded-full border border-blue-500/20 mb-8">
               <CogIcon className="w-4 h-4 text-blue-600" />
@@ -284,8 +284,8 @@ export default function About() {
       </section>
 
       {/* Company Values */}
-      <section className="py-32 bg-muted">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-16 sm:py-24 lg:py-32 bg-muted">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-20">
             {/* <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500/10 to-blue-500/10 px-4 py-2 rounded-full border border-emerald-500/20 mb-8">
               <TrophyIcon className="w-4 h-4 text-emerald-600" />
@@ -336,8 +336,8 @@ export default function About() {
       </section>
 
       {/* Company Statistics */}
-      <section className="py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-20">
             <h2 className="text-5xl font-bold text-white mb-8 leading-tight">
               VEGNAR GFRP by the Numbers
@@ -401,8 +401,8 @@ export default function About() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-32 bg-gradient-to-br from-primary/10 to-secondary/10">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-primary/10 to-secondary/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-5xl font-bold mb-8 leading-tight">
               <span className="bg-gradient-to-r from-gray-900 to-primary bg-clip-text text-transparent">

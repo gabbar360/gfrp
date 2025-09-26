@@ -84,81 +84,69 @@ const HeroSlider = () => {
           {sliderData.map((slide, index) => (
             <div
               key={index}
-              className={`${index === currentSlide ? 'block' : 'hidden'} relative h-[700px] bg-gradient-to-br from-secondary to-secondary/90`}
+              className={`${index === currentSlide ? 'block' : 'hidden'} relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gradient-to-br from-secondary to-secondary/90`}
             >
               <div className="absolute inset-0 bg-black/50" />
-              <div className="absolute inset-0 grid grid-cols-3 gap-1">
+              <div className="absolute inset-0 grid grid-cols-1 sm:grid-cols-3 gap-1">
                 {slide.images.map((img, imgIndex) => (
                   <div
                     key={imgIndex}
-                    className="bg-cover bg-center bg-no-repeat transition-all duration-1000 opacity-80"
+                    className={`bg-cover bg-center bg-no-repeat transition-all duration-1000 opacity-80 ${imgIndex > 0 ? 'hidden sm:block' : ''}`}
                     style={{ backgroundImage: `url(${img})` }}
                   />
                 ))}
               </div>
               <div className="relative h-full flex items-center justify-center">
-                <div className="text-center max-w-5xl px-6 animate-fade-in">
-                  <Badge
-                    variant="secondary"
-                    className="mb-6 bg-primary/30 text-white border-primary/50 text-lg px-4 py-2"
-                  >
+                <div className="text-center max-w-5xl px-4 sm:px-6 animate-fade-in">
+                  <Badge variant="secondary" className="mb-4 sm:mb-6 bg-primary/30 text-white border-primary/50 text-sm sm:text-lg px-3 sm:px-4 py-1 sm:py-2">
                     {slide.badge}
                   </Badge>
-                  <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+                  <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-8 leading-tight">
                     {slide.title}
                   </h1>
-                  <p className="text-xl md:text-2xl text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed">
+                  <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
                     {slide.description}
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button
-                      size="lg"
-                      className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white border-2 border-primary/50 text-lg px-8 py-4 shadow-2xl font-bold"
-                    >
-                      Explore Gallery
-                    </Button>
-                    <Button
-                      size="lg"
-                      className="bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 text-white border-2 border-secondary/50 text-lg px-8 py-4 shadow-2xl font-bold"
-                    >
-                      Read Blog
-                    </Button>
-                    <Button
-                      size="lg"
-                      className="bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white border-2 border-green-500 text-lg px-8 py-4 shadow-2xl font-bold"
-                    >
-                      Get Quote
-                    </Button>
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+                    <Link to="/gallery">
+                      <Button className="w-full sm:w-auto bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 hover:border-white/50 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                        Explore Gallery
+                      </Button>
+                    </Link>
+                    <Link to="/blog">
+                      <Button className="w-full sm:w-auto bg-primary/90 backdrop-blur-sm border border-primary/50 text-white hover:bg-primary hover:border-primary/70 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                        Read Blog
+                      </Button>
+                    </Link>
+                    <Link to="/get-quote">
+                      <Button className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-emerald-600 border border-green-400/50 text-white hover:from-green-600 hover:to-emerald-700 hover:border-green-300/70 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                        Get Quote
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
           ))}
-
-          <button
-            onClick={() =>
-              setCurrentSlide(
-                prev => (prev - 1 + sliderData.length) % sliderData.length
-              )
-            }
-            className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/20 border border-white/30 text-white hover:bg-white/40 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300"
+          
+          <button 
+            onClick={() => setCurrentSlide((prev) => (prev - 1 + sliderData.length) % sliderData.length)}
+            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 bg-white/20 border border-white/30 text-white hover:bg-white/40 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300"
           >
-            <ArrowRightIcon className="w-6 h-6 rotate-180" />
+            <ArrowRightIcon className="w-4 h-4 sm:w-6 sm:h-6 rotate-180" />
           </button>
-          <button
-            onClick={() =>
-              setCurrentSlide(prev => (prev + 1) % sliderData.length)
-            }
-            className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/20 border border-white/30 text-white hover:bg-white/40 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300"
+          <button 
+            onClick={() => setCurrentSlide((prev) => (prev + 1) % sliderData.length)}
+            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 bg-white/20 border border-white/30 text-white hover:bg-white/40 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300"
           >
-            <ArrowRightIcon className="w-6 h-6" />
+            <ArrowRightIcon className="w-4 h-4 sm:w-6 sm:h-6" />
           </button>
-
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+          
+          <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3">
             {sliderData.map((_, index) => (
               <button
                 key={index}
-                className="relative w-12 h-3 rounded-full bg-white/30 overflow-hidden transition-all duration-300 hover:bg-white/40"
+                className="relative w-8 sm:w-12 h-2 sm:h-3 rounded-full bg-white/30 overflow-hidden transition-all duration-300 hover:bg-white/40"
                 onClick={() => setCurrentSlide(index)}
               >
                 <div
