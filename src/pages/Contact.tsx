@@ -262,7 +262,7 @@ export default function Contact() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="B-623 RK Iconic, Shital Park Rajkot, Gujarat 360006, India"
+                    title="B-623, RK iconic, Sheetal Park, 150 Ft. Ring Road, Rajkot - Gujarat (360006)"
                   />
                 </div>
 
@@ -270,7 +270,7 @@ export default function Contact() {
                   <div className="flex items-center gap-3">
                     <PhoneIcon className="h-5 w-5 text-primary" />
                     <div>
-                      <p className="font-medium">+91 90333 31031 </p>
+                      <p className="font-medium">+91 90333 31031</p>
                       <p className="font-medium">+91 90333 31005</p>
                     </div>
                   </div>
@@ -278,7 +278,6 @@ export default function Contact() {
                     <EnvelopeIcon className="h-5 w-5 text-primary" />
                     <div>
                       <p className="font-medium">sales@vegnar.com</p>
-                      {/* <p className="font-medium">technical@vegnargfrp.com</p> */}
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
