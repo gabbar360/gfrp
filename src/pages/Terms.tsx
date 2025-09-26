@@ -1,7 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { 
+import {
   CheckCircleIcon,
   BeakerIcon,
   DocumentCheckIcon,
@@ -12,51 +12,57 @@ import {
   EnvelopeIcon,
   BuildingOfficeIcon,
   ClockIcon,
-  GlobeAltIcon
+  GlobeAltIcon,
 } from '@heroicons/react/24/outline';
 
 const termsSections = [
   {
     title: 'Acceptance of Terms',
     icon: CheckCircleIcon,
-    content: 'By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.',
-    items: []
+    content:
+      'By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.',
+    items: [],
   },
   {
     title: 'Product Information',
     icon: BeakerIcon,
-    content: 'All GFRP products and specifications are provided for informational purposes. Actual product performance may vary based on:',
+    content:
+      'All GFRP products and specifications are provided for informational purposes. Actual product performance may vary based on:',
     items: [
       'Environmental conditions',
       'Installation methods',
       'Application requirements',
-      'Quality of accompanying materials'
-    ]
+      'Quality of accompanying materials',
+    ],
   },
   {
     title: 'Technical Specifications',
     icon: DocumentCheckIcon,
-    content: 'Technical data sheets and specifications are based on standard testing conditions. Vegnar GFRP reserves the right to modify specifications without prior notice.',
-    items: []
+    content:
+      'Technical data sheets and specifications are based on standard testing conditions. Vegnar GFRP reserves the right to modify specifications without prior notice.',
+    items: [],
   },
   {
     title: 'Limitation of Liability',
     icon: ExclamationTriangleIcon,
-    content: 'Vegnar GFRP shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our products or information.',
-    items: []
+    content:
+      'Vegnar GFRP shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our products or information.',
+    items: [],
   },
   {
     title: 'Intellectual Property',
     icon: DocumentDuplicateIcon,
-    content: 'All content, trademarks, and intellectual property on this website are owned by Vegnar GFRP and protected by applicable laws.',
-    items: []
+    content:
+      'All content, trademarks, and intellectual property on this website are owned by Vegnar GFRP and protected by applicable laws.',
+    items: [],
   },
   {
     title: 'Governing Law',
     icon: ScaleIcon,
-    content: 'These terms shall be governed by and construed in accordance with the laws of India.',
-    items: []
-  }
+    content:
+      'These terms shall be governed by and construed in accordance with the laws of India.',
+    items: [],
+  },
 ];
 
 export default function Terms() {
@@ -69,7 +75,10 @@ export default function Terms() {
         <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <div className="flex justify-center mb-6">
-              <Badge variant="outline" className="mb-4 border-secondary-foreground/30 bg-secondary-foreground/10 backdrop-blur-sm">
+              <Badge
+                variant="outline"
+                className="mb-4 border-secondary-foreground/30 bg-secondary-foreground/10 backdrop-blur-sm"
+              >
                 <ScaleIcon className="h-4 w-4 mr-2" />
                 Legal Documentation
               </Badge>
@@ -78,8 +87,8 @@ export default function Terms() {
               Terms of Service
             </h1>
             <p className="mt-8 text-xl leading-8 text-secondary-foreground/90 max-w-2xl mx-auto">
-              Please read these terms carefully before using our services and products. 
-              These terms govern your use of our website and services.
+              Please read these terms carefully before using our services and
+              products. These terms govern your use of our website and services.
             </p>
             <div className="mt-8 flex items-center justify-center gap-4 text-secondary-foreground/70">
               <div className="flex items-center gap-2">
@@ -99,15 +108,21 @@ export default function Terms() {
       <section className="py-24 sm:py-32 bg-gradient-to-b from-background to-muted/20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Terms & Conditions</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Terms & Conditions
+            </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Understanding your rights and responsibilities when using Vegnar GFRP services
+              Understanding your rights and responsibilities when using Vegnar
+              GFRP services
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {termsSections.map((section, index) => (
-              <Card key={index} className="bg-card shadow-lg hover:shadow-xl transition-all duration-300 border-0 hover:-translate-y-1">
+              <Card
+                key={index}
+                className="bg-card shadow-lg hover:shadow-xl transition-all duration-300 border-0 hover:-translate-y-1"
+              >
                 <CardHeader className="pb-4">
                   <CardTitle className="flex items-center gap-3">
                     <div className="p-2 bg-primary/10 rounded-lg">
@@ -117,13 +132,17 @@ export default function Terms() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">{section.content}</p>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {section.content}
+                  </p>
                   {section.items.length > 0 && (
                     <ul className="space-y-3">
                       {section.items.map((item, itemIndex) => (
                         <li key={itemIndex} className="flex items-start gap-3">
                           <div className="h-2 w-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                          <span className="text-muted-foreground leading-relaxed">{item}</span>
+                          <span className="text-muted-foreground leading-relaxed">
+                            {item}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -140,28 +159,37 @@ export default function Terms() {
                 <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                   <BuildingOfficeIcon className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle className="text-2xl">
-                  Legal Questions?
-                </CardTitle>
+                <CardTitle className="text-2xl">Legal Questions?</CardTitle>
                 <p className="text-muted-foreground mt-2">
-                  Contact our legal team for clarification on terms and conditions
+                  Contact our legal team for clarification on terms and
+                  conditions
                 </p>
               </CardHeader>
               <CardContent className="text-center">
                 <div className="mb-6">
-                  <div className="text-foreground font-semibold text-lg mb-2">Vegnar Industries</div>
+                  <div className="text-foreground font-semibold text-lg mb-2">
+                    Vegnar Industries
+                  </div>
                   <p className="text-muted-foreground">Gujarat, India</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   <div className="flex flex-col items-center p-4 bg-background/50 rounded-lg">
                     <EnvelopeIcon className="h-6 w-6 text-primary mb-2" />
-                    <span className="text-sm text-muted-foreground mb-1">Email Legal Team</span>
-                    <span className="text-foreground font-semibold">info@vegnargfrp.com</span>
+                    <span className="text-sm text-muted-foreground mb-1">
+                      Email Legal Team
+                    </span>
+                    <span className="text-foreground font-semibold">
+                      info@vegnargfrp.com
+                    </span>
                   </div>
                   <div className="flex flex-col items-center p-4 bg-background/50 rounded-lg">
                     <PhoneIcon className="h-6 w-6 text-primary mb-2" />
-                    <span className="text-sm text-muted-foreground mb-1">Call Legal Team</span>
-                    <span className="text-foreground font-semibold">+91 84690 22953</span>
+                    <span className="text-sm text-muted-foreground mb-1">
+                      Call Legal Team
+                    </span>
+                    <span className="text-foreground font-semibold">
+                      +91 84690 22953
+                    </span>
                   </div>
                 </div>
                 <Button className="bg-primary hover:bg-primary/90">
@@ -181,22 +209,32 @@ export default function Terms() {
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <ScaleIcon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="font-semibold text-foreground mb-2">Legal Compliance</h3>
-              <p className="text-sm text-muted-foreground">All terms comply with Indian commercial law</p>
+              <h3 className="font-semibold text-foreground mb-2">
+                Legal Compliance
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                All terms comply with Indian commercial law
+              </p>
             </div>
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <DocumentCheckIcon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="font-semibold text-foreground mb-2">Regular Updates</h3>
-              <p className="text-sm text-muted-foreground">Terms are reviewed and updated regularly</p>
+              <h3 className="font-semibold text-foreground mb-2">
+                Regular Updates
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Terms are reviewed and updated regularly
+              </p>
             </div>
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                 <CheckCircleIcon className="h-6 w-6 text-primary" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Fair Terms</h3>
-              <p className="text-sm text-muted-foreground">Balanced terms protecting both parties</p>
+              <p className="text-sm text-muted-foreground">
+                Balanced terms protecting both parties
+              </p>
             </div>
           </div>
         </div>

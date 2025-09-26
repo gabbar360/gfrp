@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { 
+import {
   CalendarIcon,
   UserIcon,
   ArrowLeftIcon,
-  TagIcon
+  TagIcon,
 } from '@heroicons/react/24/outline';
 import { cms } from '@/lib/cms';
 import { CaseStudy } from '@/lib/types';
@@ -23,16 +29,16 @@ export default function CaseStudyDetail() {
   useEffect(() => {
     const loadCaseStudy = async () => {
       if (!slug) return;
-      
+
       setLoading(true);
       try {
         const data = await cms.getCaseStudyBySlug(slug);
         setCaseStudy(data);
       } catch (error) {
         toast({
-          title: "Error loading case study",
-          description: "Please try again later",
-          variant: "destructive"
+          title: 'Error loading case study',
+          description: 'Please try again later',
+          variant: 'destructive',
         });
       } finally {
         setLoading(false);
@@ -58,7 +64,9 @@ export default function CaseStudyDetail() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Case Study Not Found</h1>
-          <p className="text-muted-foreground mb-6">The requested case study could not be found.</p>
+          <p className="text-muted-foreground mb-6">
+            The requested case study could not be found.
+          </p>
           <Link to="/case-studies">
             <Button>
               <ArrowLeftIcon className="h-4 w-4 mr-2" />
@@ -76,9 +84,16 @@ export default function CaseStudyDetail() {
       <section className="bg-muted py-4">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <nav className="flex items-center space-x-2 text-sm">
-            <Link to="/" className="text-muted-foreground hover:text-primary">Home</Link>
+            <Link to="/" className="text-muted-foreground hover:text-primary">
+              Home
+            </Link>
             <span className="text-muted-foreground">/</span>
-            <Link to="/case-studies" className="text-muted-foreground hover:text-primary">Case Studies</Link>
+            <Link
+              to="/case-studies"
+              className="text-muted-foreground hover:text-primary"
+            >
+              Case Studies
+            </Link>
             <span className="text-muted-foreground">/</span>
             <span className="text-foreground">{caseStudy.title}</span>
           </nav>
@@ -95,7 +110,7 @@ export default function CaseStudyDetail() {
                 Back to Case Studies
               </Button>
             </Link>
-            
+
             <div className="flex items-center gap-4 mb-4">
               <Badge variant="outline">{caseStudy.category}</Badge>
               <div className="flex items-center text-sm text-muted-foreground">
@@ -107,14 +122,12 @@ export default function CaseStudyDetail() {
                 {caseStudy.author}
               </div>
             </div>
-            
+
             <h1 className="text-4xl font-bold tracking-tight mb-4">
               {caseStudy.title}
             </h1>
-            
-            <p className="text-xl text-muted-foreground">
-              {caseStudy.summary}
-            </p>
+
+            <p className="text-xl text-muted-foreground">{caseStudy.summary}</p>
           </div>
 
           {/* Meta Information */}
@@ -127,14 +140,19 @@ export default function CaseStudyDetail() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
-                    {caseStudy.materials.map((material) => (
+                    {caseStudy.materials.map(material => (
                       <Link
                         key={material}
                         to={`/materials/${material}`}
                         className="block"
                       >
-                        <Badge variant="outline" className="hover:bg-accent cursor-pointer">
-                          {material.replace('vegnar-gfrp-', '').replace('-', ' ')}
+                        <Badge
+                          variant="outline"
+                          className="hover:bg-accent cursor-pointer"
+                        >
+                          {material
+                            .replace('vegnar-gfrp-', '')
+                            .replace('-', ' ')}
                         </Badge>
                       </Link>
                     ))}
@@ -153,7 +171,7 @@ export default function CaseStudyDetail() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {caseStudy.tags.map((tag) => (
+                  {caseStudy.tags.map(tag => (
                     <Badge key={tag} variant="secondary">
                       {tag}
                     </Badge>
@@ -166,7 +184,7 @@ export default function CaseStudyDetail() {
           {/* Content */}
           <Card className="mb-12">
             <CardContent className="pt-6">
-              <div 
+              <div
                 className="prose max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground"
                 style={{ whiteSpace: 'pre-wrap' }}
               >
@@ -183,14 +201,20 @@ export default function CaseStudyDetail() {
                   Interested in Similar Solutions?
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Contact our technical team to discuss how Vegnar GFRP materials can benefit your project.
+                  Contact our technical team to discuss how Vegnar GFRP
+                  materials can benefit your project.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link to="/contact" state={{ subject: 'Project Consultation' }}>
+                  <Link
+                    to="/contact"
+                    state={{ subject: 'Project Consultation' }}
+                  >
                     <Button size="lg">Contact Technical Team</Button>
                   </Link>
                   <Link to="/materials">
-                    <Button variant="outline" size="lg">Browse Materials</Button>
+                    <Button variant="outline" size="lg">
+                      Browse Materials
+                    </Button>
                   </Link>
                 </div>
               </div>

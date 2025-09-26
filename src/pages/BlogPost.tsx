@@ -3,12 +3,12 @@ import { useParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
+import {
   CalendarIcon,
   UserIcon,
   ClockIcon,
   ArrowLeftIcon,
-  TagIcon
+  TagIcon,
 } from '@heroicons/react/24/outline';
 import { cms } from '@/lib/cms';
 import { BlogPost } from '@/lib/types';
@@ -23,16 +23,16 @@ export default function BlogPostDetail() {
   useEffect(() => {
     const loadPost = async () => {
       if (!slug) return;
-      
+
       setLoading(true);
       try {
         const data = await cms.getBlogPostBySlug(slug);
         setPost(data);
       } catch (error) {
         toast({
-          title: "Error loading blog post",
-          description: "Please try again later",
-          variant: "destructive"
+          title: 'Error loading blog post',
+          description: 'Please try again later',
+          variant: 'destructive',
         });
       } finally {
         setLoading(false);
@@ -58,7 +58,9 @@ export default function BlogPostDetail() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Article Not Found</h1>
-          <p className="text-muted-foreground mb-6">The requested article could not be found.</p>
+          <p className="text-muted-foreground mb-6">
+            The requested article could not be found.
+          </p>
           <Link to="/blog">
             <Button>
               <ArrowLeftIcon className="h-4 w-4 mr-2" />
@@ -76,9 +78,16 @@ export default function BlogPostDetail() {
       <section className="bg-muted py-4">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <nav className="flex items-center space-x-2 text-sm">
-            <Link to="/" className="text-muted-foreground hover:text-primary">Home</Link>
+            <Link to="/" className="text-muted-foreground hover:text-primary">
+              Home
+            </Link>
             <span className="text-muted-foreground">/</span>
-            <Link to="/blog" className="text-muted-foreground hover:text-primary">Blog</Link>
+            <Link
+              to="/blog"
+              className="text-muted-foreground hover:text-primary"
+            >
+              Blog
+            </Link>
             <span className="text-muted-foreground">/</span>
             <span className="text-foreground">{post.title}</span>
           </nav>
@@ -94,10 +103,10 @@ export default function BlogPostDetail() {
               Back to Blog
             </Button>
           </Link>
-          
+
           {/* Featured Image placeholder */}
           <div className="aspect-[16/9] bg-gradient-to-br from-muted to-muted/50 rounded-lg mb-8" />
-          
+
           <div className="mb-8">
             <div className="flex items-center gap-4 mb-4">
               <Badge variant="outline">{post.category}</Badge>
@@ -114,14 +123,12 @@ export default function BlogPostDetail() {
                 {post.readTime} min read
               </div>
             </div>
-            
+
             <h1 className="text-4xl font-bold tracking-tight mb-4">
               {post.title}
             </h1>
-            
-            <p className="text-xl text-muted-foreground">
-              {post.excerpt}
-            </p>
+
+            <p className="text-xl text-muted-foreground">{post.excerpt}</p>
           </div>
 
           {/* Tags */}
@@ -132,7 +139,7 @@ export default function BlogPostDetail() {
                 <span className="text-sm font-medium">Tags</span>
               </div>
               <div className="flex flex-wrap gap-2">
-                {post.tags.map((tag) => (
+                {post.tags.map(tag => (
                   <Badge key={tag} variant="secondary">
                     {tag}
                   </Badge>
@@ -144,7 +151,7 @@ export default function BlogPostDetail() {
           {/* Content */}
           <Card className="mb-12">
             <CardContent className="pt-6">
-              <div 
+              <div
                 className="prose max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground"
                 style={{ whiteSpace: 'pre-wrap' }}
               >
@@ -161,14 +168,17 @@ export default function BlogPostDetail() {
                   Need Technical Support?
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Our engineering team is ready to help with material selection and application guidance.
+                  Our engineering team is ready to help with material selection
+                  and application guidance.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link to="/contact" state={{ subject: 'Technical Support' }}>
                     <Button size="lg">Contact Technical Team</Button>
                   </Link>
                   <Link to="/materials">
-                    <Button variant="outline" size="lg">Browse Materials</Button>
+                    <Button variant="outline" size="lg">
+                      Browse Materials
+                    </Button>
                   </Link>
                 </div>
               </div>

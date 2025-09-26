@@ -6,7 +6,16 @@
     "shortDescription": "High-strength, corrosion-resistant GFRP reinforcement bars for concrete structures.",
     "longDescription": "<p>Vegnar GFRP Rebar Bars are manufactured using high-quality glass fibers bonded with a durable polymer resin. These rebars offer excellent tensile strength while being significantly lighter than steel, making them ideal for harsh environments like coastal areas, chemical plants, and water-retaining structures. With complete resistance to rust and corrosion, GFRP rebars extend the service life of structures, reduce maintenance costs, and simplify handling and installation due to their lightweight nature.</p>",
     "category": "GFRP Rebar",
-    "application": ["Bridge Construction", "Marine Structures", "Chemical Plants", "Water Treatment Facilities", "Tunnels", "Highway Construction", "Parking Structures", "Industrial Flooring"],
+    "application": [
+      "Bridge Construction",
+      "Marine Structures",
+      "Chemical Plants",
+      "Water Treatment Facilities",
+      "Tunnels",
+      "Highway Construction",
+      "Parking Structures",
+      "Industrial Flooring"
+    ],
     "images": ["/images/gfrp-rebar-bar-1.jpg", "/images/gfrp-rebar-bar-2.jpg"],
     "datasheetUrl": "/pdfs/vegnar-gfrp-rebar-bar-datasheet.pdf",
     "properties": {
@@ -24,13 +33,32 @@
     },
     "certifications": ["ASTM D7957", "CSA S807", "ACI 440.1R", "ISO 10406"],
     "downloads": [
-      { "label": "Technical Datasheet (PDF)", "url": "/pdfs/vegnar-gfrp-rebar-bar-datasheet.pdf" },
-      { "label": "Installation Guide (PDF)", "url": "/pdfs/gfrp-rebar-installation-guide.pdf" },
-      { "label": "Weight Chart (PDF)", "url": "/pdfs/gfrp-rebar-weight-chart.pdf" }
+      {
+        "label": "Technical Datasheet (PDF)",
+        "url": "/pdfs/vegnar-gfrp-rebar-bar-datasheet.pdf"
+      },
+      {
+        "label": "Installation Guide (PDF)",
+        "url": "/pdfs/gfrp-rebar-installation-guide.pdf"
+      },
+      {
+        "label": "Weight Chart (PDF)",
+        "url": "/pdfs/gfrp-rebar-weight-chart.pdf"
+      }
     ],
     "reviews": [
-      { "author": "Ahmed Construction Ltd.", "rating": 5, "text": "Excellent corrosion resistance in marine environment. Much lighter than steel rebars, making installation faster.", "date": "2025-08-15" },
-      { "author": "Infrastructure Projects Inc.", "rating": 5, "text": "Perfect for chemical plant construction. Non-conductive properties are exactly what we needed.", "date": "2025-07-22" }
+      {
+        "author": "Ahmed Construction Ltd.",
+        "rating": 5,
+        "text": "Excellent corrosion resistance in marine environment. Much lighter than steel rebars, making installation faster.",
+        "date": "2025-08-15"
+      },
+      {
+        "author": "Infrastructure Projects Inc.",
+        "rating": 5,
+        "text": "Perfect for chemical plant construction. Non-conductive properties are exactly what we needed.",
+        "date": "2025-07-22"
+      }
     ],
     "relatedSlugs": ["vegnar-gfrp-rebar-bend"],
     "createdAt": "2025-08-01",
@@ -43,8 +71,20 @@
     "shortDescription": "Pre-fabricated GFRP rebar bends and hooks for structural reinforcement connections.",
     "longDescription": "<p>Vegnar GFRP Rebar Bends are specially manufactured pre-formed reinforcement elements designed for structural connections and corner reinforcements. These bends maintain the same high-performance characteristics as straight GFRP rebars while providing the necessary shapes for complex structural requirements. Available in various angles and configurations, these bends ensure proper load transfer and structural integrity in reinforced concrete applications.</p>",
     "category": "GFRP Rebar",
-    "application": ["Foundation Corners", "Beam-Column Connections", "Retaining Walls", "Bridge Abutments", "Structural Joints", "L-shaped Connections", "U-shaped Reinforcement", "Custom Bend Configurations"],
-    "images": ["/images/gfrp-rebar-bend-1.jpg", "/images/gfrp-rebar-bend-2.jpg"],
+    "application": [
+      "Foundation Corners",
+      "Beam-Column Connections",
+      "Retaining Walls",
+      "Bridge Abutments",
+      "Structural Joints",
+      "L-shaped Connections",
+      "U-shaped Reinforcement",
+      "Custom Bend Configurations"
+    ],
+    "images": [
+      "/images/gfrp-rebar-bend-1.jpg",
+      "/images/gfrp-rebar-bend-2.jpg"
+    ],
     "datasheetUrl": "/pdfs/vegnar-gfrp-rebar-bend-datasheet.pdf",
     "properties": {
       "density_kg_m3": 1900,
@@ -62,13 +102,32 @@
     },
     "certifications": ["ASTM D7957", "CSA S807", "ACI 440.1R", "ISO 10406"],
     "downloads": [
-      { "label": "Technical Datasheet (PDF)", "url": "/pdfs/vegnar-gfrp-rebar-bend-datasheet.pdf" },
-      { "label": "Bend Configurations Guide (PDF)", "url": "/pdfs/gfrp-rebar-bend-guide.pdf" },
-      { "label": "Installation Manual (PDF)", "url": "/pdfs/gfrp-rebar-bend-installation.pdf" }
+      {
+        "label": "Technical Datasheet (PDF)",
+        "url": "/pdfs/vegnar-gfrp-rebar-bend-datasheet.pdf"
+      },
+      {
+        "label": "Bend Configurations Guide (PDF)",
+        "url": "/pdfs/gfrp-rebar-bend-guide.pdf"
+      },
+      {
+        "label": "Installation Manual (PDF)",
+        "url": "/pdfs/gfrp-rebar-bend-installation.pdf"
+      }
     ],
     "reviews": [
-      { "author": "Coastal Engineering Works", "rating": 5, "text": "Pre-fabricated bends save significant time on site. Quality is consistent and reliable.", "date": "2025-08-10" },
-      { "author": "Metro Construction", "rating": 4, "text": "Good performance in foundation work. Custom bend angles available on request.", "date": "2025-07-18" }
+      {
+        "author": "Coastal Engineering Works",
+        "rating": 5,
+        "text": "Pre-fabricated bends save significant time on site. Quality is consistent and reliable.",
+        "date": "2025-08-10"
+      },
+      {
+        "author": "Metro Construction",
+        "rating": 4,
+        "text": "Good performance in foundation work. Custom bend angles available on request.",
+        "date": "2025-07-18"
+      }
     ],
     "relatedSlugs": ["vegnar-gfrp-rebar-bar"],
     "createdAt": "2025-08-05",
