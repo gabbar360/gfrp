@@ -41,28 +41,28 @@ const sliderData = [
     title: 'VEGNAR GFRP - Leading Composite Solutions',
     description:
       'Revolutionary Glass Fiber Reinforced Polymer technology transforming construction industry with superior strength and durability',
-    images: [manufacturing, companyFacility, productLineup],
+    image: '/banner/banner1.jpeg',
     badge: 'Innovation',
   },
   {
     title: 'Advanced GFRP Reinforcement Systems',
     description:
       'Cutting-edge composite rebars offering exceptional corrosion resistance and structural integrity for critical infrastructure',
-    images: [applicationsShowcase, gfrpReinforcement, materialsShowcase],
+    image: '/banner/banner2.jpeg',
     badge: 'Technology',
   },
   {
     title: 'VEGNAR Excellence in Engineering',
     description:
       'Decades of expertise in composite material science delivering world-class GFRP solutions for global construction projects',
-    images: [vegnarMilestones, companyTeam, coreValues],
+    image: '/banner/banner3.jpeg',
     badge: 'Excellence',
   },
   {
     title: 'Premium GFRP Product Portfolio',
     description:
       'Comprehensive range of high-performance glass fiber reinforced polymer products engineered for demanding applications',
-    images: [materialSamples, gfrpIntroduction, manufacturing],
+    image: '/banner/banner4.jpeg',
     badge: 'Products',
   },
 ];
@@ -87,18 +87,16 @@ const HeroSlider = () => {
               className={`${index === currentSlide ? 'block' : 'hidden'} relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gradient-to-br from-secondary to-secondary/90`}
             >
               <div className="absolute inset-0 bg-black/50" />
-              <div className="absolute inset-0 grid grid-cols-1 sm:grid-cols-3 gap-1">
-                {slide.images.map((img, imgIndex) => (
-                  <div
-                    key={imgIndex}
-                    className={`bg-cover bg-center bg-no-repeat transition-all duration-1000 opacity-80 ${imgIndex > 0 ? 'hidden sm:block' : ''}`}
-                    style={{ backgroundImage: `url(${img})` }}
-                  />
-                ))}
-              </div>
+              <div 
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
+                style={{ backgroundImage: `url(${slide.image})` }}
+              />
               <div className="relative h-full flex items-center justify-center">
                 <div className="text-center max-w-5xl px-4 sm:px-6 animate-fade-in">
-                  <Badge variant="secondary" className="mb-4 sm:mb-6 bg-primary/30 text-white border-primary/50 text-sm sm:text-lg px-3 sm:px-4 py-1 sm:py-2">
+                  <Badge
+                    variant="secondary"
+                    className="mb-4 sm:mb-6 bg-primary/30 text-white border-primary/50 text-sm sm:text-lg px-3 sm:px-4 py-1 sm:py-2"
+                  >
                     {slide.badge}
                   </Badge>
                   <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-8 leading-tight">
@@ -128,20 +126,26 @@ const HeroSlider = () => {
               </div>
             </div>
           ))}
-          
-          <button 
-            onClick={() => setCurrentSlide((prev) => (prev - 1 + sliderData.length) % sliderData.length)}
+
+          <button
+            onClick={() =>
+              setCurrentSlide(
+                prev => (prev - 1 + sliderData.length) % sliderData.length
+              )
+            }
             className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 bg-white/20 border border-white/30 text-white hover:bg-white/40 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300"
           >
             <ArrowRightIcon className="w-4 h-4 sm:w-6 sm:h-6 rotate-180" />
           </button>
-          <button 
-            onClick={() => setCurrentSlide((prev) => (prev + 1) % sliderData.length)}
+          <button
+            onClick={() =>
+              setCurrentSlide(prev => (prev + 1) % sliderData.length)
+            }
             className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 bg-white/20 border border-white/30 text-white hover:bg-white/40 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300"
           >
             <ArrowRightIcon className="w-4 h-4 sm:w-6 sm:h-6" />
           </button>
-          
+
           <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3">
             {sliderData.map((_, index) => (
               <button
