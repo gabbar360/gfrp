@@ -18,13 +18,13 @@ const navigation = {
     { name: 'About Us', href: '/about' },
     { name: 'Benefits Of GFRP', href: '/benefits' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Gallery', href: '/gallery' },
+  // { name: 'Gallery', href: '/gallery' },
   ],
   support: [
     { name: 'Contact', href: '/contact' },
-    { name: 'Technical Support', href: '/contact?subject=technical' },
-    { name: 'Downloads', href: '/materials' },
-    { name: 'Documentation', href: '/materials' },
+    // { name: 'Technical Support', href: '/contact?subject=technical' },
+    // { name: 'Downloads', href: '/materials' },
+    // { name: 'Documentation', href: '/materials' },
   ],
 };
 
@@ -53,8 +53,12 @@ export function Footer() {
               <div className="flex items-center space-x-3">
                 <BuildingOfficeIcon className="h-5 w-5 text-primary" />
                 <span className="text-sm">
-                  B-623 RK Iconic, Shital Park Rajkot, Gujarat 360006, India
+                  B-623, RK iconic, Sheetal Park, 150 Ft. Ring Road, Rajkot - Gujarat (360006)
                 </span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <PhoneIcon className="h-5 w-5 text-primary" />
+                <span className="text-sm">+91 90333 31031</span>
               </div>
               <div className="flex items-center space-x-3">
                 <PhoneIcon className="h-5 w-5 text-primary" />
@@ -62,7 +66,11 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <EnvelopeIcon className="h-5 w-5 text-primary" />
-                <span className="text-sm">info@vegnargfrp.com</span>
+                <span className="text-sm">sales@vegnar.com</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <MapPinIcon className="h-5 w-5 text-primary" />
+                <span className="text-sm">www.vegnargfrp.com</span>
               </div>
             </div>
 
@@ -71,18 +79,32 @@ export function Footer() {
 
           {/* Navigation Columns */}
           <div>
-            <h3 className="text-sm font-semibold mb-4">Products</h3>
+            <h3 className="text-sm font-semibold mb-4">Technical Details</h3>
             <ul className="space-y-3">
-              {navigation.products.map(item => (
-                <li key={item.name}>
-                  <Link
-                    to={item.href}
-                    className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  to="/safety-guidelines"
+                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
+                  Safety Guidelines
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/technical-specification"
+                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
+                  Technical Specification
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/case-studies-global"
+                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
+                  Case Studies (Global GFRP)
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -206,23 +228,36 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="mt-12 pt-8 border-t border-secondary-foreground/20">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-secondary-foreground/60">
-              © 2025 Vegnar GFRP. All rights reserved.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-4 md:mt-0">
-              <div className="flex space-x-6">
-                <Link
-                  to="/privacy"
-                  className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors"
+            <div className="flex space-x-6 mb-4 md:mb-0">
+              <Link
+                to="/privacy"
+                className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                to="/terms"
+                className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors"
+              >
+                Terms of Service
+              </Link>
+            </div>
+            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-8">
+              <p className="text-sm text-secondary-foreground/60">
+                © 2025 Vegnar GFRP. All rights reserved.
+              </p>
+              <div className="text-center">
+                <p className="text-sm text-secondary-foreground/80">
+                  Developed By <span className="font-semibold text-primary">Flexa Digital</span>
+                </p>
+                <a 
+                  href="https://www.flexadigital.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm text-primary hover:text-primary/80 transition-colors underline"
                 >
-                  Privacy Policy
-                </Link>
-                <Link
-                  to="/terms"
-                  className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors"
-                >
-                  Terms of Service
-                </Link>
+                  www.flexadigital.com
+                </a>
               </div>
             </div>
           </div>

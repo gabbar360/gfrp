@@ -8,8 +8,9 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Benefits Of GFRP', href: '/benefits' },
+  { name: 'Corporate Identity', href: '/corporate-identity' },
   { name: 'Blog', href: '/blog' },
-  { name: 'Gallery', href: '/gallery' },
+  // { name: 'Gallery', href: '/gallery' },
   { name: 'Contact', href: '/contact' }
 ];
 
@@ -63,11 +64,11 @@ export function Header() {
               {item.name}
             </Link>
           ))}
-          <Link to="/get-quote">
+          {/* <Link to="/get-quote">
             <Button variant="default" size="sm">
               Get Quote
             </Button>
-          </Link>
+          </Link> */}
         </div>
       </nav>
       

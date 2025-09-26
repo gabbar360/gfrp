@@ -106,11 +106,7 @@ const HeroSlider = () => {
                     {slide.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
-                    <Link to="/gallery">
-                      <Button className="w-full sm:w-auto bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 hover:border-white/50 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-                        Explore Gallery
-                      </Button>
-                    </Link>
+
                     <Link to="/blog">
                       <Button className="w-full sm:w-auto bg-primary/90 backdrop-blur-sm border border-primary/50 text-white hover:bg-primary hover:border-primary/70 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
                         Read Blog

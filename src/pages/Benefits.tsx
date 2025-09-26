@@ -16,46 +16,88 @@ import {
 
 const benefits = [
   {
-    title: 'Corrosion Resistance',
-    icon: ShieldCheckIcon,
-    description:
-      'Complete immunity to rust and corrosion, ensuring long-lasting structural integrity',
-    advantage: '100% corrosion-free',
-  },
-  {
-    title: 'Lightweight Design',
-    icon: BeakerIcon,
-    description:
-      '75% lighter than steel, reducing transportation costs and installation complexity',
-    advantage: '75% weight reduction',
-  },
-  {
-    title: 'Non-Conductive',
-    icon: BoltIcon,
-    description:
-      'Electrical and thermal insulation properties for enhanced safety in sensitive applications',
-    advantage: 'Zero conductivity',
-  },
-  {
-    title: 'Extended Lifespan',
-    icon: ClockIcon,
-    description:
-      'Service life exceeding 100 years with minimal maintenance requirements',
-    advantage: '100+ year lifespan',
-  },
-  {
-    title: 'Cost Effective',
-    icon: CurrencyDollarIcon,
-    description:
-      'Lower total cost of ownership through reduced maintenance and replacement needs',
-    advantage: '40% cost savings',
-  },
-  {
-    title: 'High Strength',
+    title: 'High Tensile Strength',
     icon: ChartBarIcon,
     description:
-      'Superior tensile strength comparable to or exceeding traditional steel reinforcement',
-    advantage: 'Higher tensile strength',
+      '600-1200 MPa tensile strength delivers exceptional load capacity while keeping structures lightweight.',
+    advantage: '600-1200 MPa',
+  },
+  {
+    title: 'Low Density',
+    icon: BeakerIcon,
+    description:
+      '~1600-1900 kg/m³ density simplifies handling and lowers transportation costs compared to steel.',
+    advantage: '~1600-1900 kg/m³',
+  },
+  {
+    title: 'Reduced Risk of Thermal Cracking',
+    icon: FireIcon,
+    description:
+      'Thermal expansion closer to concrete minimizes stress and cracking caused by temperature fluctuations.',
+    advantage: 'Stable thermal expansion',
+  },
+  {
+    title: 'Ease of Installation',
+    icon: WrenchScrewdriverIcon,
+    description:
+      'Lightweight bars allow faster placement with smaller crews and less heavy machinery.',
+    advantage: 'Quick installation',
+  },
+  {
+    title: 'Thermal Insulation',
+    icon: BoltIcon,
+    description:
+      'Low thermal conductivity preserves interior comfort and protects temperature-sensitive assets.',
+    advantage: 'High insulation',
+  },
+  {
+    title: 'Corrosion Resistant',
+    icon: ShieldCheckIcon,
+    description:
+      '100% corrosion-free performance even in harsh environments, eliminating rust-related failures.',
+    advantage: 'No corrosion',
+  },
+  {
+    title: 'No Coating Required',
+    icon: CurrencyDollarIcon,
+    description:
+      'Removes the need for protective coatings, saving time, materials, and labor costs.',
+    advantage: 'Coating-free',
+  },
+  {
+    title: 'Non-Magnetic & Non-Conductive',
+    icon: BoltIcon,
+    description:
+      'Non-magnetic, electrically neutral bars ensure compatibility with sensitive equipment.',
+    advantage: 'Non-magnetic',
+  },
+  {
+    title: 'No Maintenance Required',
+    icon: WrenchScrewdriverIcon,
+    description:
+      'Long service life without inspections or repairs keeps lifecycle costs to a minimum.',
+    advantage: 'Maintenance-free',
+  },
+  {
+    title: 'High Strength-to-Weight Ratio',
+    icon: ChartBarIcon,
+    description:
+      'Provides superior load-bearing strength while remaining light enough for efficient design.',
+    advantage: 'Superior ratio',
+  },
+  {
+    title: 'Highly Durable',
+    icon: ShieldCheckIcon,
+    description:
+      'Resists chemicals, moisture, and harsh environments where steel would deteriorate.',
+    advantage: 'Chemical resistant',
+  },
+  {
+    title: 'Long Service Life',
+    icon: ClockIcon,
+    description:
+      '75+ year lifespan keeps infrastructure performing reliably for decades.',
+    advantage: '75+ years',
   },
 ];
 
