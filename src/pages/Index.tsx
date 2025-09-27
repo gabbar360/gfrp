@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { useEffect, useState } from 'react';
+
 import heroImage from '@/assets/hero-bridge.jpg';
 import materialsShowcase from '@/assets/materials-showcase.jpg';
 import manufacturing from '@/assets/manufacturing.jpg';
@@ -36,8 +36,6 @@ import {
   ClockIcon,
   GlobeAltIcon,
 } from '@heroicons/react/24/outline';
-
-
 
 const sliderData = [
   {
@@ -83,88 +81,41 @@ const HeroSlider = () => {
   return (
     <section className="relative">
       <div className="w-full">
-        <div className="relative">
-          {sliderData.map((slide, index) => (
-            <div
-              key={index}
-              className={`${index === currentSlide ? 'block' : 'hidden'} relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gradient-to-br from-secondary to-secondary/90`}
-            >
-              <div className="absolute inset-0 bg-black/50" />
-              <div 
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
-                style={{ backgroundImage: `url(${slide.image})` }}
-              />
-              <div className="relative h-full flex items-center justify-center">
-                <div className="text-center max-w-5xl px-4 sm:px-6 animate-fade-in">
-                  <Badge
-                    variant="secondary"
-                    className="mb-4 sm:mb-6 bg-primary/30 text-white border-primary/50 text-sm sm:text-lg px-3 sm:px-4 py-1 sm:py-2"
-                  >
-                    {slide.badge}
-                  </Badge>
-                  <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-8 leading-tight">
-                    {slide.title}
-                  </h1>
-                  <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
-                    {slide.description}
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
-
-                    <Link to="/blog">
-                      <Button className="w-full sm:w-auto bg-primary/90 backdrop-blur-sm border border-primary/50 text-white hover:bg-primary hover:border-primary/70 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-                        Read Blog
-                      </Button>
-                    </Link>
-                    <Link to="/get-quote">
-                      <Button className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-emerald-600 border border-green-400/50 text-white hover:from-green-600 hover:to-emerald-700 hover:border-green-300/70 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-                        Get Quote
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
+        <div className="relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gradient-to-br from-secondary to-secondary/90">
+          <div className="absolute inset-0 bg-black/50" />
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: 'url(/banner/banner1.jpeg)' }}
+          />
+          <div className="relative h-full flex items-center justify-center">
+            <div className="text-center max-w-5xl px-4 sm:px-6">
+              <Badge
+                variant="secondary"
+                className="mb-4 sm:mb-6 bg-primary/30 text-white border-primary/50 text-sm sm:text-lg px-3 sm:px-4 py-1 sm:py-2"
+              >
+                Innovation
+              </Badge>
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-8 leading-tight">
+                VEGNAR GFRP - Leading Composite Solutions
+              </h1>
+              <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
+                Revolutionary Glass Fiber Reinforced Polymer technology
+                transforming construction industry with superior strength and
+                durability
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+                <Link to="/blog">
+                  <Button className="w-full sm:w-auto bg-primary/90 backdrop-blur-sm border border-primary/50 text-white hover:bg-primary hover:border-primary/70 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                    Read Blog
+                  </Button>
+                </Link>
+                <Link to="/get-quote">
+                  <Button className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-emerald-600 border border-green-400/50 text-white hover:from-green-600 hover:to-emerald-700 hover:border-green-300/70 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                    Get Quote
+                  </Button>
+                </Link>
               </div>
             </div>
-          ))}
-
-          <button
-            onClick={() =>
-              setCurrentSlide(
-                prev => (prev - 1 + sliderData.length) % sliderData.length
-              )
-            }
-            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 bg-white/20 border border-white/30 text-white hover:bg-white/40 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300"
-          >
-            <ArrowRightIcon className="w-4 h-4 sm:w-6 sm:h-6 rotate-180" />
-          </button>
-          <button
-            onClick={() =>
-              setCurrentSlide(prev => (prev + 1) % sliderData.length)
-            }
-            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 bg-white/20 border border-white/30 text-white hover:bg-white/40 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300"
-          >
-            <ArrowRightIcon className="w-4 h-4 sm:w-6 sm:h-6" />
-          </button>
-
-          <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3">
-            {sliderData.map((_, index) => (
-              <button
-                key={index}
-                className="relative w-8 sm:w-12 h-2 sm:h-3 rounded-full bg-white/30 overflow-hidden transition-all duration-300 hover:bg-white/40"
-                onClick={() => setCurrentSlide(index)}
-              >
-                <div
-                  className={`absolute top-0 left-0 h-full bg-primary rounded-full transition-all duration-300 ${
-                    index === currentSlide ? 'w-full animate-pulse' : 'w-0'
-                  }`}
-                  style={{
-                    animation:
-                      index === currentSlide
-                        ? 'fillCapsule 5s linear infinite'
-                        : 'none',
-                  }}
-                />
-              </button>
-            ))}
           </div>
         </div>
       </div>
@@ -175,8 +126,8 @@ const HeroSlider = () => {
 const Index = () => {
   return (
     <div>
-      {/* Hero Slider Section */}
-      <HeroSlider />
+      {/* Hero Banner Section */}
+      <HeroBanner />
 
       {/* VEGNAR GFRP Overview - Pro Level */}
       <section className="relative py-32 overflow-hidden">
@@ -541,33 +492,36 @@ const Index = () => {
       <section className="relative py-32 overflow-hidden bg-gradient-to-br from-orange-50 via-white to-orange-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-20">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className="inline-block bg-gradient-to-r from-orange-600 to-orange-700 text-white px-8 py-4 rounded-full mb-8 shadow-2xl"
             >
-              <h2 className="text-3xl md:text-4xl font-bold">Spectrum of Applications</h2>
+              <h2 className="text-3xl md:text-4xl font-bold">
+                Spectrum of Applications
+              </h2>
             </motion.div>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
               className="text-xl text-gray-700 max-w-3xl mx-auto"
             >
-              VEGNAR GFRP delivers comprehensive solutions across diverse industries, from infrastructure to specialized applications
+              VEGNAR GFRP delivers comprehensive solutions across diverse
+              industries, from infrastructure to specialized applications
             </motion.p>
           </div>
 
           <div className="space-y-24">
             {/* Roads and Highways */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="relative"
               >
@@ -581,65 +535,220 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="space-y-3 text-gray-800">
-                    <motion.p animate={{ x: [0, 8, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Approach Slabs
+                    <motion.p
+                      animate={{ x: [0, 8, 0] }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Approach Slabs
                     </motion.p>
-                    <motion.p animate={{ x: [0, 12, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Walkways of Foot Over Bridge
+                    <motion.p
+                      animate={{ x: [0, 12, 0] }}
+                      transition={{
+                        duration: 3.5,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.2,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Walkways of Foot Over Bridge
                     </motion.p>
-                    <motion.p animate={{ x: [0, 10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.4 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Slab Culverts
+                    <motion.p
+                      animate={{ x: [0, 10, 0] }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.4,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Slab Culverts
                     </motion.p>
-                    <motion.p animate={{ x: [0, 6, 0] }} transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Bridge cum Bandhara, including Deck Slabs and Barriers between Piers
+                    <motion.p
+                      animate={{ x: [0, 6, 0] }}
+                      transition={{
+                        duration: 3.2,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.6,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Bridge cum Bandhara, including Deck Slabs and Barriers
+                      between Piers
                     </motion.p>
-                    <motion.p animate={{ x: [0, 14, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.8 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Concrete Roads including Jointed Plain Concrete Pavement
+                    <motion.p
+                      animate={{ x: [0, 14, 0] }}
+                      transition={{
+                        duration: 3.8,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.8,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Concrete Roads including Jointed Plain Concrete Pavement
                     </motion.p>
-                    <motion.p animate={{ x: [0, 9, 0] }} transition={{ duration: 3.3, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Continuously-Reinforced Concrete Pavements (CRCP)
+                    <motion.p
+                      animate={{ x: [0, 9, 0] }}
+                      transition={{
+                        duration: 3.3,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Continuously-Reinforced Concrete Pavements (CRCP)
                     </motion.p>
-                    <motion.p animate={{ x: [0, 11, 0] }} transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 1.2 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Short-Panel Concrete Pavements (both cast-in-situ and precast)
+                    <motion.p
+                      animate={{ x: [0, 11, 0] }}
+                      transition={{
+                        duration: 3.6,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1.2,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Short-Panel Concrete Pavements (both cast-in-situ and
+                      precast)
                     </motion.p>
-                    <motion.p animate={{ x: [0, 7, 0] }} transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut", delay: 1.4 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Retaining Walls
+                    <motion.p
+                      animate={{ x: [0, 7, 0] }}
+                      transition={{
+                        duration: 3.4,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1.4,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Retaining Walls
                     </motion.p>
-                    <motion.p animate={{ x: [0, 13, 0] }} transition={{ duration: 3.7, repeat: Infinity, ease: "easeInOut", delay: 1.6 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Noise barriers
+                    <motion.p
+                      animate={{ x: [0, 13, 0] }}
+                      transition={{
+                        duration: 3.7,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1.6,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Noise barriers
                     </motion.p>
-                    <motion.p animate={{ x: [0, 8, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.8 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Box Culverts
+                    <motion.p
+                      animate={{ x: [0, 8, 0] }}
+                      transition={{
+                        duration: 3.5,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1.8,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Box Culverts
                     </motion.p>
-                    <motion.p animate={{ x: [0, 15, 0] }} transition={{ duration: 4.1, repeat: Infinity, ease: "easeInOut", delay: 2 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Crash Barriers & Bridge Parapets
+                    <motion.p
+                      animate={{ x: [0, 15, 0] }}
+                      transition={{
+                        duration: 4.1,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 2,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Crash Barriers & Bridge Parapets
                     </motion.p>
-                    <motion.p animate={{ x: [0, 10, 0] }} transition={{ duration: 3.9, repeat: Infinity, ease: "easeInOut", delay: 2.2 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Pedestrian Parapets and Railings
+                    <motion.p
+                      animate={{ x: [0, 10, 0] }}
+                      transition={{
+                        duration: 3.9,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 2.2,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Pedestrian Parapets and Railings
                     </motion.p>
-                    <motion.p animate={{ x: [0, 12, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 2.4 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Bulkheads and Bulkhead Copings
+                    <motion.p
+                      animate={{ x: [0, 12, 0] }}
+                      transition={{
+                        duration: 3.8,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 2.4,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Bulkheads and Bulkhead Copings
                     </motion.p>
-                    <motion.p animate={{ x: [0, 9, 0] }} transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 2.6 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Drains
+                    <motion.p
+                      animate={{ x: [0, 9, 0] }}
+                      transition={{
+                        duration: 3.6,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 2.6,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Drains
                     </motion.p>
-                    <motion.p animate={{ x: [0, 14, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2.8 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>Plain Concrete Components
+                    <motion.p
+                      animate={{ x: [0, 14, 0] }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 2.8,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
+                      Plain Concrete Components
                     </motion.p>
                   </div>
                 </div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="flex justify-center"
               >
                 <motion.div
                   animate={{ x: [0, -20, 0], rotateY: [0, 5, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
                   className="relative"
                 >
                   <div className="w-80 h-80 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-2xl">
@@ -658,16 +767,20 @@ const Index = () => {
 
             {/* Industrial & Chemicals */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="flex justify-center order-2 lg:order-1"
               >
                 <motion.div
                   animate={{ x: [0, -15, 0], rotateY: [0, -5, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
                   className="relative"
                 >
                   <div className="w-80 h-80 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-2xl">
@@ -682,11 +795,11 @@ const Index = () => {
                   </div>
                 </motion.div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="relative order-1 lg:order-2"
               >
@@ -696,30 +809,101 @@ const Index = () => {
                       <CogIcon className="h-8 w-8 text-white" />
                     </div>
                     <div className="bg-blue-600 text-white px-6 py-2 rounded-full">
-                      <h3 className="text-lg font-bold">INDUSTRIAL CHEMICALS</h3>
+                      <h3 className="text-lg font-bold">
+                        INDUSTRIAL CHEMICALS
+                      </h3>
                     </div>
                   </div>
                   <div className="space-y-3 text-gray-800">
-                    <motion.p animate={{ x: [0, 10, 0] }} transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }} className="flex items-center">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Deck slabs
+                    <motion.p
+                      animate={{ x: [0, 10, 0] }}
+                      transition={{
+                        duration: 3.2,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                      Deck slabs
                     </motion.p>
-                    <motion.p animate={{ x: [0, 13, 0] }} transition={{ duration: 3.7, repeat: Infinity, ease: "easeInOut", delay: 0.3 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Underground Water Tanks
+                    <motion.p
+                      animate={{ x: [0, 13, 0] }}
+                      transition={{
+                        duration: 3.7,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.3,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                      Underground Water Tanks
                     </motion.p>
-                    <motion.p animate={{ x: [0, 9, 0] }} transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut", delay: 0.6 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Sewerage Treatment Plants
+                    <motion.p
+                      animate={{ x: [0, 9, 0] }}
+                      transition={{
+                        duration: 3.4,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.6,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                      Sewerage Treatment Plants
                     </motion.p>
-                    <motion.p animate={{ x: [0, 16, 0] }} transition={{ duration: 4.1, repeat: Infinity, ease: "easeInOut", delay: 0.9 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Flooring
+                    <motion.p
+                      animate={{ x: [0, 16, 0] }}
+                      transition={{
+                        duration: 4.1,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.9,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                      Flooring
                     </motion.p>
-                    <motion.p animate={{ x: [0, 12, 0] }} transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 1.2 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Septic Tanks
+                    <motion.p
+                      animate={{ x: [0, 12, 0] }}
+                      transition={{
+                        duration: 3.6,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1.2,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                      Septic Tanks
                     </motion.p>
-                    <motion.p animate={{ x: [0, 14, 0] }} transition={{ duration: 3.9, repeat: Infinity, ease: "easeInOut", delay: 1.5 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Chemical & wastewater treatment plants
+                    <motion.p
+                      animate={{ x: [0, 14, 0] }}
+                      transition={{
+                        duration: 3.9,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1.5,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                      Chemical & wastewater treatment plants
                     </motion.p>
-                    <motion.p animate={{ x: [0, 11, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1.8 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Boundary Walls
+                    <motion.p
+                      animate={{ x: [0, 11, 0] }}
+                      transition={{
+                        duration: 3.8,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1.8,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                      Boundary Walls
                     </motion.p>
                   </div>
                 </div>
@@ -728,10 +912,10 @@ const Index = () => {
 
             {/* Real Estate */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="relative"
               >
@@ -745,44 +929,127 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="space-y-3 text-gray-800">
-                    <motion.p animate={{ x: [0, 11, 0] }} transition={{ duration: 3.3, repeat: Infinity, ease: "easeInOut" }} className="flex items-center">
-                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>Parking Garages
+                    <motion.p
+                      animate={{ x: [0, 11, 0] }}
+                      transition={{
+                        duration: 3.3,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>
+                      Parking Garages
                     </motion.p>
-                    <motion.p animate={{ x: [0, 8, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.2 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>Drainage
+                    <motion.p
+                      animate={{ x: [0, 8, 0] }}
+                      transition={{
+                        duration: 3.8,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.2,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>
+                      Drainage
                     </motion.p>
-                    <motion.p animate={{ x: [0, 15, 0] }} transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>Pavements/Internal Road
+                    <motion.p
+                      animate={{ x: [0, 15, 0] }}
+                      transition={{
+                        duration: 4.2,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.4,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>
+                      Pavements/Internal Road
                     </motion.p>
-                    <motion.p animate={{ x: [0, 12, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>Swimming Pools
+                    <motion.p
+                      animate={{ x: [0, 12, 0] }}
+                      transition={{
+                        duration: 3.5,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.6,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>
+                      Swimming Pools
                     </motion.p>
-                    <motion.p animate={{ x: [0, 9, 0] }} transition={{ duration: 3.7, repeat: Infinity, ease: "easeInOut", delay: 0.8 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>Sewage Treatment Plants
+                    <motion.p
+                      animate={{ x: [0, 9, 0] }}
+                      transition={{
+                        duration: 3.7,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.8,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>
+                      Sewage Treatment Plants
                     </motion.p>
-                    <motion.p animate={{ x: [0, 13, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>Flooring
+                    <motion.p
+                      animate={{ x: [0, 13, 0] }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>
+                      Flooring
                     </motion.p>
-                    <motion.p animate={{ x: [0, 10, 0] }} transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 1.2 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>Under Water Tanks
+                    <motion.p
+                      animate={{ x: [0, 10, 0] }}
+                      transition={{
+                        duration: 3.6,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1.2,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>
+                      Under Water Tanks
                     </motion.p>
-                    <motion.p animate={{ x: [0, 14, 0] }} transition={{ duration: 3.9, repeat: Infinity, ease: "easeInOut", delay: 1.4 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>Grade Slabs
+                    <motion.p
+                      animate={{ x: [0, 14, 0] }}
+                      transition={{
+                        duration: 3.9,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1.4,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-green-600 rounded-full mr-3"></span>
+                      Grade Slabs
                     </motion.p>
                   </div>
                 </div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="flex justify-center"
               >
                 <motion.div
                   animate={{ x: [0, -18, 0], rotateY: [0, 5, 0] }}
-                  transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{
+                    duration: 3.8,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
                   className="relative"
                 >
                   <div className="w-80 h-80 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-2xl">
@@ -801,16 +1068,20 @@ const Index = () => {
 
             {/* Bridges and Tunnels */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="flex justify-center order-2 lg:order-1"
               >
                 <motion.div
                   animate={{ x: [0, -22, 0], rotateY: [0, -5, 0] }}
-                  transition={{ duration: 4.3, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{
+                    duration: 4.3,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
                   className="relative"
                 >
                   <div className="w-80 h-80 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
@@ -825,11 +1096,11 @@ const Index = () => {
                   </div>
                 </motion.div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="relative order-1 lg:order-2"
               >
@@ -843,26 +1114,95 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="space-y-3 text-gray-800">
-                    <motion.p animate={{ x: [0, 10, 0] }} transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }} className="flex items-center">
-                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>Tunnel Eyes
+                    <motion.p
+                      animate={{ x: [0, 10, 0] }}
+                      transition={{
+                        duration: 3.4,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>
+                      Tunnel Eyes
                     </motion.p>
-                    <motion.p animate={{ x: [0, 14, 0] }} transition={{ duration: 3.9, repeat: Infinity, ease: "easeInOut", delay: 0.3 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>Mechanically Stabilised Earth Wall
+                    <motion.p
+                      animate={{ x: [0, 14, 0] }}
+                      transition={{
+                        duration: 3.9,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.3,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>
+                      Mechanically Stabilised Earth Wall
                     </motion.p>
-                    <motion.p animate={{ x: [0, 11, 0] }} transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 0.6 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>Panels and Copings
+                    <motion.p
+                      animate={{ x: [0, 11, 0] }}
+                      transition={{
+                        duration: 3.6,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.6,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>
+                      Panels and Copings
                     </motion.p>
-                    <motion.p animate={{ x: [0, 16, 0] }} transition={{ duration: 4.1, repeat: Infinity, ease: "easeInOut", delay: 0.9 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>Retaining Walls
+                    <motion.p
+                      animate={{ x: [0, 16, 0] }}
+                      transition={{
+                        duration: 4.1,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.9,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>
+                      Retaining Walls
                     </motion.p>
-                    <motion.p animate={{ x: [0, 13, 0] }} transition={{ duration: 3.7, repeat: Infinity, ease: "easeInOut", delay: 1.2 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>Bridge Decks and Bridge Deck overlays
+                    <motion.p
+                      animate={{ x: [0, 13, 0] }}
+                      transition={{
+                        duration: 3.7,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1.2,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>
+                      Bridge Decks and Bridge Deck overlays
                     </motion.p>
-                    <motion.p animate={{ x: [0, 9, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>Noise barriers
+                    <motion.p
+                      animate={{ x: [0, 9, 0] }}
+                      transition={{
+                        duration: 3.5,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1.5,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>
+                      Noise barriers
                     </motion.p>
-                    <motion.p animate={{ x: [0, 12, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1.8 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>Crash Barriers and Bridge Parapets
+                    <motion.p
+                      animate={{ x: [0, 12, 0] }}
+                      transition={{
+                        duration: 3.8,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1.8,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>
+                      Crash Barriers and Bridge Parapets
                     </motion.p>
                   </div>
                 </div>
@@ -871,10 +1211,10 @@ const Index = () => {
 
             {/* Airports, Ports & Stations */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="relative"
               >
@@ -884,45 +1224,120 @@ const Index = () => {
                       <GlobeAltIcon className="h-8 w-8 text-white" />
                     </div>
                     <div className="bg-red-600 text-white px-6 py-2 rounded-full">
-                      <h3 className="text-lg font-bold">AIRPORTS, PORTS & STATIONS</h3>
+                      <h3 className="text-lg font-bold">
+                        AIRPORTS, PORTS & STATIONS
+                      </h3>
                     </div>
                   </div>
                   <div className="space-y-3 text-gray-800">
-                    <motion.p animate={{ x: [0, 12, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }} className="flex items-center">
-                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Runways
+                    <motion.p
+                      animate={{ x: [0, 12, 0] }}
+                      transition={{
+                        duration: 3.5,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                      Runways
                     </motion.p>
-                    <motion.p animate={{ x: [0, 15, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.2 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Drains
+                    <motion.p
+                      animate={{ x: [0, 15, 0] }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.2,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                      Drains
                     </motion.p>
-                    <motion.p animate={{ x: [0, 8, 0] }} transition={{ duration: 3.3, repeat: Infinity, ease: "easeInOut", delay: 0.4 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Sewage Treatment Plants
+                    <motion.p
+                      animate={{ x: [0, 8, 0] }}
+                      transition={{
+                        duration: 3.3,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.4,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                      Sewage Treatment Plants
                     </motion.p>
-                    <motion.p animate={{ x: [0, 18, 0] }} transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Underground Water Tanks
+                    <motion.p
+                      animate={{ x: [0, 18, 0] }}
+                      transition={{
+                        duration: 4.2,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.6,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                      Underground Water Tanks
                     </motion.p>
-                    <motion.p animate={{ x: [0, 11, 0] }} transition={{ duration: 3.7, repeat: Infinity, ease: "easeInOut", delay: 0.8 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Noise barriers
+                    <motion.p
+                      animate={{ x: [0, 11, 0] }}
+                      transition={{
+                        duration: 3.7,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 0.8,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                      Noise barriers
                     </motion.p>
-                    <motion.p animate={{ x: [0, 14, 0] }} transition={{ duration: 3.9, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Deck slabs
+                    <motion.p
+                      animate={{ x: [0, 14, 0] }}
+                      transition={{
+                        duration: 3.9,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                      Deck slabs
                     </motion.p>
-                    <motion.p animate={{ x: [0, 10, 0] }} transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 1.2 }} className="flex items-center">
-                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Non-Structural Walls
+                    <motion.p
+                      animate={{ x: [0, 10, 0] }}
+                      transition={{
+                        duration: 3.6,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: 1.2,
+                      }}
+                      className="flex items-center"
+                    >
+                      <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                      Non-Structural Walls
                     </motion.p>
                   </div>
                 </div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 className="flex justify-center"
               >
                 <motion.div
                   animate={{ x: [0, -25, 0], rotateY: [0, 5, 0] }}
-                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{
+                    duration: 4.5,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
                   className="relative"
                 >
                   <div className="w-80 h-80 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-2xl">
@@ -1009,20 +1424,26 @@ const Index = () => {
       <section className="relative py-20 bg-gradient-to-br from-orange-50 via-white to-orange-100 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,154,0,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(120,119,198,0.1),transparent_50%)]" />
-        
+
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full border border-primary/20 mb-6">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm font-semibold text-primary">Trusted Partners</span>
+              <span className="text-sm font-semibold text-primary">
+                Trusted Partners
+              </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="text-secondary">Our Valuable</span>
               <br />
-              <span className="text-5xl md:text-6xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">CLIENTS</span>
+              <span className="text-5xl md:text-6xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                CLIENTS
+              </span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We are proud to be trusted by a diverse range of clients across industries, including importers, distributors, consultants and leading companies in construction, ceramics, and chemicals.
+              We are proud to be trusted by a diverse range of clients across
+              industries, including importers, distributors, consultants and
+              leading companies in construction, ceramics, and chemicals.
             </p>
           </div>
 
@@ -1030,16 +1451,22 @@ const Index = () => {
             <h3 className="text-xl font-bold text-gray-800 mb-8 text-center">
               Featured Clients & Partners
             </h3>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
               {/* iXsell - Europe Importer & Distributor */}
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-2xl font-bold text-blue-600">iXsell</div>
+                    <div className="text-2xl font-bold text-blue-600">
+                      iXsell
+                    </div>
                   </div>
-                  <div className="text-xs text-gray-500 font-medium">Europe</div>
-                  <div className="text-xs text-gray-600">Importer & Distributor</div>
+                  <div className="text-xs text-gray-500 font-medium">
+                    Europe
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    Importer & Distributor
+                  </div>
                 </div>
               </div>
 
@@ -1047,9 +1474,13 @@ const Index = () => {
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-xl font-bold text-gray-800">Simpolo</div>
+                    <div className="text-xl font-bold text-gray-800">
+                      Simpolo
+                    </div>
                   </div>
-                  <div className="text-xs text-gray-600">Manufacturing Industry</div>
+                  <div className="text-xs text-gray-600">
+                    Manufacturing Industry
+                  </div>
                 </div>
               </div>
 
@@ -1057,7 +1488,9 @@ const Index = () => {
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-xl font-bold text-orange-600">Suntech</div>
+                    <div className="text-xl font-bold text-orange-600">
+                      Suntech
+                    </div>
                   </div>
                   <div className="text-xs text-gray-600">Casting Foundry</div>
                 </div>
@@ -1067,7 +1500,9 @@ const Index = () => {
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-xl font-bold text-blue-600">ananta</div>
+                    <div className="text-xl font-bold text-blue-600">
+                      ananta
+                    </div>
                   </div>
                   <div className="text-xs text-gray-500">Ananta Inc.</div>
                   <div className="text-xs text-gray-600">USA Consultant</div>
