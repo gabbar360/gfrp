@@ -50,6 +50,7 @@ export type ContactFormData = {
   email: string;
   company?: string;
   phone?: string;
+  country?: string;
   subject: string;
   message: string;
   materialInterest?: string[];

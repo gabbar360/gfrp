@@ -247,17 +247,17 @@ export function Footer() {
                 © 2025 Vegnar GFRP. All rights reserved.
               </p>
               <div className="text-center">
-                <p className="text-sm text-secondary-foreground/80">
-                  Developed By <span className="font-semibold text-primary">Flexa Digital</span>
-                </p>
-                <a 
+                <p className="text-sm  text-secondary-foreground/60">
+                  Developed By <span className="font-semibold"> <a 
                   href="https://www.flexadigital.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-sm text-primary hover:text-primary/80 transition-colors underline"
+                  className="text-sm  underline text-secondary-foreground/60"
                 >
                   www.flexadigital.com
-                </a>
+                </a></span>
+                </p>
+               
               </div>
             </div>
           </div>
