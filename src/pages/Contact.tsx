@@ -34,6 +34,7 @@ export default function Contact() {
     email: '',
     company: '',
     phone: '',
+    country: '',
     subject: '',
     message: '',
     materialInterest: [],
@@ -73,6 +74,7 @@ export default function Contact() {
         email: '',
         company: '',
         phone: '',
+        country: '',
         subject: '',
         message: '',
         materialInterest: [],
@@ -203,6 +205,34 @@ export default function Contact() {
                   </div>
 
                   <div className="space-y-3">
+                    <Label className="text-sm font-semibold text-gray-700">
+                      Country
+                    </Label>
+                    <Select value={formData.country} onValueChange={(value) => handleInputChange('country', value)}>
+                      <SelectTrigger className="h-12 border-2 border-gray-200 focus:border-primary">
+                        <SelectValue placeholder="Select your country" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="india">India</SelectItem>
+                        <SelectItem value="usa">United States</SelectItem>
+                        <SelectItem value="uk">United Kingdom</SelectItem>
+                        <SelectItem value="canada">Canada</SelectItem>
+                        <SelectItem value="australia">Australia</SelectItem>
+                        <SelectItem value="germany">Germany</SelectItem>
+                        <SelectItem value="france">France</SelectItem>
+                        <SelectItem value="japan">Japan</SelectItem>
+                        <SelectItem value="china">China</SelectItem>
+                        <SelectItem value="brazil">Brazil</SelectItem>
+                        <SelectItem value="mexico">Mexico</SelectItem>
+                        <SelectItem value="south-africa">South Africa</SelectItem>
+                        <SelectItem value="uae">United Arab Emirates</SelectItem>
+                        <SelectItem value="singapore">Singapore</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="space-y-3">
                     <Label
                       htmlFor="message"
                       className="text-sm font-semibold text-gray-700"
@@ -245,51 +275,57 @@ export default function Contact() {
             </Card>
           </div>
 
-          {/* Office Location Map */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-2xl">Visit Our Office</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {/* Google Map - Replace src with your office address embed URL */}
-                <div className="w-full h-64 rounded-lg overflow-hidden">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.9082710046723!2d70.7654633734807!3d22.31930864220962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959cb03c1e54adf%3A0xd1f26824f275dba0!2sVegnar%20Greens%20-%20India&#39;s%20leading%20manufacturer%20of%20sugarcane%20bagasse%20tableware!5e0!3m2!1sen!2sin!4v1758798632518!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="B-623, RK iconic, Sheetal Park, 150 Ft. Ring Road, Rajkot - Gujarat (360006)"
-                  />
+          {/* Contact Information */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <PhoneIcon className="h-8 w-8 text-orange-600" />
                 </div>
+                <h3 className="text-xl font-semibold mb-3">Call Us</h3>
+                <p className="text-gray-600 mb-2">+91 90333 31031</p>
+                <p className="text-gray-600">+91 90333 31005</p>
+              </CardContent>
+            </Card>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-                  <div className="flex items-center gap-3">
-                    <PhoneIcon className="h-5 w-5 text-primary" />
-                    <div>
-                      <p className="font-medium">+91 90333 31031</p>
-                      <p className="font-medium">+91 90333 31005</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <EnvelopeIcon className="h-5 w-5 text-primary" />
-                    <div>
-                      <p className="font-medium">sales@vegnar.com</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <ClockIcon className="h-5 w-5 text-primary" />
-                    <div>
-                      <p className="font-medium">
-                        Mon - Sat: 10:00 AM - 7:00 PM
-                      </p>
-                    </div>
-                  </div>
+            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <EnvelopeIcon className="h-8 w-8 text-orange-600" />
                 </div>
+                <h3 className="text-xl font-semibold mb-3">Email Us</h3>
+                <p className="text-gray-600">sales@vegnar.com</p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MapPinIcon className="h-8 w-8 text-orange-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Visit Us</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  B-623, RK iconic, Sheetal Park,<br />
+                  150 Ft. Ring Road, Rajkot<br />
+                  Gujarat (360006)
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Business Hours */}
+          <Card className="mt-8">
+            <CardContent className="p-8 text-center">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <ClockIcon className="h-6 w-6 text-orange-600" />
+                <h3 className="text-xl font-semibold">Business Hours</h3>
               </div>
+              <p className="text-gray-600 text-lg">
+                Monday - Saturday: 10:00 AM - 7:00 PM
+              </p>
+              <p className="text-gray-500 mt-2">
+                Sunday: Closed
+              </p>
             </CardContent>
           </Card>
         </div>
