@@ -308,7 +308,7 @@ export default function Blog() {
                       <UserIcon className="h-10 w-10 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg text-foreground">Tusar</h4>
+                      <h4 className="font-bold text-lg text-foreground">Tushar</h4>
                       <p className="text-sm text-muted-foreground mb-2">Chief Executive Officer</p>
                       <p className="text-xs text-muted-foreground leading-relaxed">
                         Leading expert in GFRP technology with 15+ years of experience in composite materials research and development. PhD in Materials Engineering from IIT Mumbai.

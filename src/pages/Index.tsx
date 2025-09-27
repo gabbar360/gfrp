@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { useEffect, useState } from 'react';
+
 import heroImage from '@/assets/hero-bridge.jpg';
 import materialsShowcase from '@/assets/materials-showcase.jpg';
 import manufacturing from '@/assets/manufacturing.jpg';
@@ -36,132 +36,43 @@ import {
   GlobeAltIcon,
 } from '@heroicons/react/24/outline';
 
-const sliderData = [
-  {
-    title: 'VEGNAR GFRP - Leading Composite Solutions',
-    description:
-      'Revolutionary Glass Fiber Reinforced Polymer technology transforming construction industry with superior strength and durability',
-    image: '/banner/banner1.jpeg',
-    badge: 'Innovation',
-  },
-  {
-    title: 'Advanced GFRP Reinforcement Systems',
-    description:
-      'Cutting-edge composite rebars offering exceptional corrosion resistance and structural integrity for critical infrastructure',
-    image: '/banner/banner2.jpeg',
-    badge: 'Technology',
-  },
-  {
-    title: 'VEGNAR Excellence in Engineering',
-    description:
-      'Decades of expertise in composite material science delivering world-class GFRP solutions for global construction projects',
-    image: '/banner/banner3.jpeg',
-    badge: 'Excellence',
-  },
-  {
-    title: 'Premium GFRP Product Portfolio',
-    description:
-      'Comprehensive range of high-performance glass fiber reinforced polymer products engineered for demanding applications',
-    image: '/banner/banner4.jpeg',
-    badge: 'Products',
-  },
-];
-
-const HeroSlider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % sliderData.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
+const HeroBanner = () => {
   return (
     <section className="relative">
       <div className="w-full">
-        <div className="relative">
-          {sliderData.map((slide, index) => (
-            <div
-              key={index}
-              className={`${index === currentSlide ? 'block' : 'hidden'} relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gradient-to-br from-secondary to-secondary/90`}
-            >
-              <div className="absolute inset-0 bg-black/50" />
-              <div 
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
-                style={{ backgroundImage: `url(${slide.image})` }}
-              />
-              <div className="relative h-full flex items-center justify-center">
-                <div className="text-center max-w-5xl px-4 sm:px-6 animate-fade-in">
-                  <Badge
-                    variant="secondary"
-                    className="mb-4 sm:mb-6 bg-primary/30 text-white border-primary/50 text-sm sm:text-lg px-3 sm:px-4 py-1 sm:py-2"
-                  >
-                    {slide.badge}
-                  </Badge>
-                  <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-8 leading-tight">
-                    {slide.title}
-                  </h1>
-                  <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
-                    {slide.description}
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
-
-                    <Link to="/blog">
-                      <Button className="w-full sm:w-auto bg-primary/90 backdrop-blur-sm border border-primary/50 text-white hover:bg-primary hover:border-primary/70 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-                        Read Blog
-                      </Button>
-                    </Link>
-                    <Link to="/get-quote">
-                      <Button className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-emerald-600 border border-green-400/50 text-white hover:from-green-600 hover:to-emerald-700 hover:border-green-300/70 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-                        Get Quote
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
+        <div className="relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gradient-to-br from-secondary to-secondary/90">
+          <div className="absolute inset-0 bg-black/50" />
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: 'url(/banner/banner1.jpeg)' }}
+          />
+          <div className="relative h-full flex items-center justify-center">
+            <div className="text-center max-w-5xl px-4 sm:px-6">
+              <Badge
+                variant="secondary"
+                className="mb-4 sm:mb-6 bg-primary/30 text-white border-primary/50 text-sm sm:text-lg px-3 sm:px-4 py-1 sm:py-2"
+              >
+                Innovation
+              </Badge>
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-8 leading-tight">
+                VEGNAR GFRP - Leading Composite Solutions
+              </h1>
+              <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
+                Revolutionary Glass Fiber Reinforced Polymer technology transforming construction industry with superior strength and durability
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+                <Link to="/blog">
+                  <Button className="w-full sm:w-auto bg-primary/90 backdrop-blur-sm border border-primary/50 text-white hover:bg-primary hover:border-primary/70 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                    Read Blog
+                  </Button>
+                </Link>
+                <Link to="/get-quote">
+                  <Button className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-emerald-600 border border-green-400/50 text-white hover:from-green-600 hover:to-emerald-700 hover:border-green-300/70 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                    Get Quote
+                  </Button>
+                </Link>
               </div>
             </div>
-          ))}
-
-          <button
-            onClick={() =>
-              setCurrentSlide(
-                prev => (prev - 1 + sliderData.length) % sliderData.length
-              )
-            }
-            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 bg-white/20 border border-white/30 text-white hover:bg-white/40 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300"
-          >
-            <ArrowRightIcon className="w-4 h-4 sm:w-6 sm:h-6 rotate-180" />
-          </button>
-          <button
-            onClick={() =>
-              setCurrentSlide(prev => (prev + 1) % sliderData.length)
-            }
-            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 bg-white/20 border border-white/30 text-white hover:bg-white/40 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300"
-          >
-            <ArrowRightIcon className="w-4 h-4 sm:w-6 sm:h-6" />
-          </button>
-
-          <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3">
-            {sliderData.map((_, index) => (
-              <button
-                key={index}
-                className="relative w-8 sm:w-12 h-2 sm:h-3 rounded-full bg-white/30 overflow-hidden transition-all duration-300 hover:bg-white/40"
-                onClick={() => setCurrentSlide(index)}
-              >
-                <div
-                  className={`absolute top-0 left-0 h-full bg-primary rounded-full transition-all duration-300 ${
-                    index === currentSlide ? 'w-full animate-pulse' : 'w-0'
-                  }`}
-                  style={{
-                    animation:
-                      index === currentSlide
-                        ? 'fillCapsule 5s linear infinite'
-                        : 'none',
-                  }}
-                />
-              </button>
-            ))}
           </div>
         </div>
       </div>
@@ -172,8 +83,8 @@ const HeroSlider = () => {
 const Index = () => {
   return (
     <div>
-      {/* Hero Slider Section */}
-      <HeroSlider />
+      {/* Hero Banner Section */}
+      <HeroBanner />
 
       {/* VEGNAR GFRP Overview - Pro Level */}
       <section className="relative py-32 overflow-hidden">
