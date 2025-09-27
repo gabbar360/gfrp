@@ -1,16 +1,22 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
-import { 
-  DocumentArrowDownIcon, 
+import {
+  DocumentArrowDownIcon,
   StarIcon,
   CalendarIcon,
   CheckCircleIcon,
-  ArrowLeftIcon
+  ArrowLeftIcon,
 } from '@heroicons/react/24/outline';
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
 import { cms, formatPropertyValue } from '@/lib/cms';
@@ -27,22 +33,22 @@ export default function MaterialDetail() {
   useEffect(() => {
     const loadMaterial = async () => {
       if (!slug) return;
-      
+
       setLoading(true);
       try {
         const materialData = await cms.getMaterialBySlug(slug);
         if (materialData) {
           setMaterial(materialData);
-          
+
           // Load related materials
           const related = await cms.getRelatedMaterials(slug);
           setRelatedMaterials(related);
         }
       } catch (error) {
         toast({
-          title: "Error loading material",
-          description: "Please try again later",
-          variant: "destructive"
+          title: 'Error loading material',
+          description: 'Please try again later',
+          variant: 'destructive',
         });
       } finally {
         setLoading(false);
@@ -54,19 +60,19 @@ export default function MaterialDetail() {
 
   const handleDownload = (url: string, filename: string) => {
     toast({
-      title: "Download started",
-      description: `Downloading ${filename}...`
+      title: 'Download started',
+      description: `Downloading ${filename}...`,
     });
   };
 
   const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
+    return Array.from({ length: 5 }, (_, i) =>
       i < rating ? (
         <StarIconSolid key={i} className="h-4 w-4 text-yellow-400" />
       ) : (
         <StarIcon key={i} className="h-4 w-4 text-gray-300" />
       )
-    ));
+    );
   };
 
   if (loading) {
@@ -74,7 +80,9 @@ export default function MaterialDetail() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
-          <p className="mt-4 text-muted-foreground">Loading material details...</p>
+          <p className="mt-4 text-muted-foreground">
+            Loading material details...
+          </p>
         </div>
       </div>
     );
@@ -85,7 +93,9 @@ export default function MaterialDetail() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Material Not Found</h1>
-          <p className="text-muted-foreground mb-6">The requested material could not be found.</p>
+          <p className="text-muted-foreground mb-6">
+            The requested material could not be found.
+          </p>
           <Link to="/materials">
             <Button>
               <ArrowLeftIcon className="h-4 w-4 mr-2" />
@@ -103,9 +113,16 @@ export default function MaterialDetail() {
       <section className="bg-muted py-4">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <nav className="flex items-center space-x-2 text-sm">
-            <Link to="/" className="text-muted-foreground hover:text-primary">Home</Link>
+            <Link to="/" className="text-muted-foreground hover:text-primary">
+              Home
+            </Link>
             <span className="text-muted-foreground">/</span>
-            <Link to="/materials" className="text-muted-foreground hover:text-primary">Materials</Link>
+            <Link
+              to="/materials"
+              className="text-muted-foreground hover:text-primary"
+            >
+              Materials
+            </Link>
             <span className="text-muted-foreground">/</span>
             <span className="text-foreground">{material.name}</span>
           </nav>
@@ -119,18 +136,19 @@ export default function MaterialDetail() {
             <div className="flex-1">
               <div className="flex items-center gap-4 mb-4">
                 <Badge variant="outline">{material.category}</Badge>
-                {material.certifications && material.certifications.length > 0 && (
-                  <Badge variant="secondary">
-                    <CheckCircleIcon className="h-3 w-3 mr-1" />
-                    Certified
-                  </Badge>
-                )}
+                {material.certifications &&
+                  material.certifications.length > 0 && (
+                    <Badge variant="secondary">
+                      <CheckCircleIcon className="h-3 w-3 mr-1" />
+                      Certified
+                    </Badge>
+                  )}
               </div>
-              
+
               <h1 className="text-4xl font-bold tracking-tight mb-4">
                 {material.name}
               </h1>
-              
+
               <p className="text-xl text-muted-foreground mb-6">
                 {material.shortDescription}
               </p>
@@ -139,24 +157,32 @@ export default function MaterialDetail() {
               <div className="mb-6">
                 <h3 className="text-lg font-semibold mb-2">Applications</h3>
                 <div className="flex flex-wrap gap-2">
-                  {material.application.map((app) => (
-                    <Badge key={app} variant="outline">{app}</Badge>
+                  {material.application.map(app => (
+                    <Badge key={app} variant="outline">
+                      {app}
+                    </Badge>
                   ))}
                 </div>
               </div>
 
               {/* Quick Actions */}
               <div className="flex flex-wrap gap-4">
-                <Link to="/contact" state={{ materialInterest: [material.name] }}>
-                  <Button size="lg">
-                    Get Quote
-                  </Button>
+                <Link
+                  to="/contact"
+                  state={{ materialInterest: [material.name] }}
+                >
+                  <Button size="lg">Get Quote</Button>
                 </Link>
                 {material.datasheetUrl && (
                   <Button
                     variant="outline"
                     size="lg"
-                    onClick={() => handleDownload(material.datasheetUrl!, `${material.name}-datasheet.pdf`)}
+                    onClick={() =>
+                      handleDownload(
+                        material.datasheetUrl!,
+                        `${material.name}-datasheet.pdf`
+                      )
+                    }
                   >
                     <DocumentArrowDownIcon className="h-4 w-4 mr-2" />
                     Download Datasheet
@@ -192,11 +218,13 @@ export default function MaterialDetail() {
                   <CardTitle>Material Overview</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div 
+                  <div
                     className="prose max-w-none"
-                    dangerouslySetInnerHTML={{ __html: material.longDescription }}
+                    dangerouslySetInnerHTML={{
+                      __html: material.longDescription,
+                    }}
                   />
-                  
+
                   {material.downloads && material.downloads.length > 0 && (
                     <div className="mt-8">
                       <h4 className="text-lg font-semibold mb-4">Downloads</h4>
@@ -206,7 +234,9 @@ export default function MaterialDetail() {
                             key={index}
                             variant="outline"
                             className="w-full justify-start"
-                            onClick={() => handleDownload(download.url, download.label)}
+                            onClick={() =>
+                              handleDownload(download.url, download.label)
+                            }
                           >
                             <DocumentArrowDownIcon className="h-4 w-4 mr-2" />
                             {download.label}
@@ -230,9 +260,14 @@ export default function MaterialDetail() {
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {Object.entries(material.properties).map(([key, value]) => (
-                      <div key={key} className="flex justify-between items-center py-2 border-b">
+                      <div
+                        key={key}
+                        className="flex justify-between items-center py-2 border-b"
+                      >
                         <span className="font-medium">
-                          {key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                          {key
+                            .replace(/_/g, ' ')
+                            .replace(/\b\w/g, l => l.toUpperCase())}
                         </span>
                         <span className="text-muted-foreground">
                           {formatPropertyValue(key, value)}
@@ -253,9 +288,10 @@ export default function MaterialDetail() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  {material.certifications && material.certifications.length > 0 ? (
+                  {material.certifications &&
+                  material.certifications.length > 0 ? (
                     <div className="space-y-4">
-                      {material.certifications.map((cert) => (
+                      {material.certifications.map(cert => (
                         <div key={cert} className="flex items-center space-x-3">
                           <CheckCircleIcon className="h-5 w-5 text-green-500" />
                           <span className="font-medium">{cert}</span>
@@ -264,7 +300,8 @@ export default function MaterialDetail() {
                     </div>
                   ) : (
                     <p className="text-muted-foreground">
-                      Certification information is being updated. Please contact us for current compliance status.
+                      Certification information is being updated. Please contact
+                      us for current compliance status.
                     </p>
                   )}
                 </CardContent>
@@ -283,10 +320,15 @@ export default function MaterialDetail() {
                   {material.reviews && material.reviews.length > 0 ? (
                     <div className="space-y-6">
                       {material.reviews.map((review, index) => (
-                        <div key={index} className="border-b pb-6 last:border-b-0">
+                        <div
+                          key={index}
+                          className="border-b pb-6 last:border-b-0"
+                        >
                           <div className="flex items-center justify-between mb-2">
                             <div className="flex items-center space-x-3">
-                              <span className="font-medium">{review.author}</span>
+                              <span className="font-medium">
+                                {review.author}
+                              </span>
                               <div className="flex items-center">
                                 {renderStars(review.rating)}
                               </div>
@@ -318,11 +360,15 @@ export default function MaterialDetail() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2 className="text-2xl font-bold mb-8">Related Materials</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {relatedMaterials.map((relatedMaterial) => (
+              {relatedMaterials.map(relatedMaterial => (
                 <Card key={relatedMaterial.id} className="bg-card">
                   <CardHeader>
-                    <CardTitle className="text-lg">{relatedMaterial.name}</CardTitle>
-                    <CardDescription>{relatedMaterial.shortDescription}</CardDescription>
+                    <CardTitle className="text-lg">
+                      {relatedMaterial.name}
+                    </CardTitle>
+                    <CardDescription>
+                      {relatedMaterial.shortDescription}
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <Link to={`/materials/${relatedMaterial.slug}`}>

@@ -8,10 +8,9 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Benefits Of GFRP', href: '/benefits' },
-  // { name: 'Materials', href: '/materials' },
-  // { name: 'Case Studies', href: '/case-studies' },
+  { name: 'Corporate Identity', href: '/corporate-identity' },
   { name: 'Blog', href: '/blog' },
-  { name: 'Gallery', href: '/gallery' },
+  // { name: 'Gallery', href: '/gallery' },
   { name: 'Contact', href: '/contact' }
 ];
 
@@ -51,12 +50,12 @@ export function Header() {
           </button>
         </div>
         
-        <div className="hidden lg:flex lg:gap-x-8">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-6">
           {navigation.map((item) => (
             <Link
               key={item.name}
               to={item.href}
-              className={`text-sm font-semibold transition-colors ${
+              className={`text-sm font-medium whitespace-nowrap transition-colors ${
                 isActive(item.href)
                   ? 'text-primary'
                   : 'text-foreground hover:text-primary'
@@ -65,14 +64,11 @@ export function Header() {
               {item.name}
             </Link>
           ))}
-        </div>
-        
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to="/contact">
+          {/* <Link to="/get-quote">
             <Button variant="default" size="sm">
               Get Quote
             </Button>
-          </Link>
+          </Link> */}
         </div>
       </nav>
       
@@ -119,7 +115,7 @@ export function Header() {
                 ))}
               </div>
               <div className="py-6">
-                <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/get-quote" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="default" className="w-full">
                     Get Quote
                   </Button>

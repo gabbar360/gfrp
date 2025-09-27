@@ -1,3 +1,4 @@
+import TechnicalSpecification from "./pages/TechnicalSpecification";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,13 +14,17 @@ import CaseStudies from "./pages/CaseStudies";
 import CaseStudyDetail from "./pages/CaseStudyDetail";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
-import Gallery from "./pages/Gallery";
+// import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
+import CorporateIdentity from "./pages/CorporateIdentity";
 import Search from "./pages/Search";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Benefits from "./pages/Benefits";
+import GetQuote from "./pages/GetQuote";
 import NotFound from "./pages/NotFound";
+import CaseStudiesGlobal from "./pages/CaseStudiesGlobal";
+import SafetyGuidelines from "./pages/SafetyGuidelines";
 
 const queryClient = new QueryClient();
 
@@ -41,12 +46,17 @@ const App = () => (
               <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/gallery" element={<Gallery />} />
+              {/* <Route path="/gallery" element={<Gallery />} /> */}
               <Route path="/contact" element={<Contact />} />
               <Route path="/search" element={<Search />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/benefits" element={<Benefits />} />
+              <Route path="/get-quote" element={<GetQuote />} />
+              <Route path="/safety-guidelines" element={<SafetyGuidelines />} />
+              <Route path="/case-studies-global" element={<CaseStudiesGlobal />} />
+              <Route path="/technical-specification" element={<TechnicalSpecification />} />
+              <Route path="/corporate-identity" element={<CorporateIdentity />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

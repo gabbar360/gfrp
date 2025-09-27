@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useEffect, useState } from 'react';
 import heroImage from '@/assets/hero-bridge.jpg';
 import materialsShowcase from '@/assets/materials-showcase.jpg';
 import manufacturing from '@/assets/manufacturing.jpg';
@@ -26,348 +33,564 @@ import {
   AcademicCapIcon,
   TrophyIcon,
   ClockIcon,
-  GlobeAltIcon
+  GlobeAltIcon,
 } from '@heroicons/react/24/outline';
 
-const features = [
+const sliderData = [
   {
-    name: 'Non-Corrosive',
-    description: 'Complete resistance to rust and corrosion - ideal for harsh environments',
-    icon: ShieldCheckIcon,
+    title: 'VEGNAR GFRP - Leading Composite Solutions',
+    description:
+      'Revolutionary Glass Fiber Reinforced Polymer technology transforming construction industry with superior strength and durability',
+    image: '/banner/banner1.jpeg',
+    badge: 'Innovation',
   },
   {
-    name: '75% Lighter',
-    description: 'Significantly lighter than steel rebars, reducing transportation costs',
-    icon: BeakerIcon,
+    title: 'Advanced GFRP Reinforcement Systems',
+    description:
+      'Cutting-edge composite rebars offering exceptional corrosion resistance and structural integrity for critical infrastructure',
+    image: '/banner/banner2.jpeg',
+    badge: 'Technology',
   },
   {
-    name: 'Non-Conductive',
-    description: 'Electrical and thermal insulation properties for enhanced safety',
-    icon: CogIcon,
+    title: 'VEGNAR Excellence in Engineering',
+    description:
+      'Decades of expertise in composite material science delivering world-class GFRP solutions for global construction projects',
+    image: '/banner/banner3.jpeg',
+    badge: 'Excellence',
   },
   {
-    name: '100+ Year Life',
-    description: 'Extended service life reduces maintenance and replacement costs',
-    icon: ChartBarIcon,
-  },
-];
-
-const stats = [
-  { name: 'Years of Excellence', value: '15+' },
-  { name: 'Projects Delivered', value: '1000+' },
-  { name: 'Countries Served', value: '25+' },
-  { name: 'Tons Produced', value: '50,000+' },
-];
-
-const companyHighlights = [
-  {
-    name: 'Advanced Manufacturing',
-    description: 'State-of-the-art production facilities with automated quality control systems',
-    icon: BuildingOfficeIcon,
-  },
-  {
-    name: 'Expert Team',
-    description: '50+ engineers and material scientists dedicated to innovation',
-    icon: UsersIcon,
-  },
-  {
-    name: 'Research & Development',
-    description: 'Continuous R&D investment in next-generation composite materials',
-    icon: AcademicCapIcon,
-  },
-  {
-    name: 'Industry Leadership',
-    description: 'Recognized leader in GFRP technology and sustainable solutions',
-    icon: TrophyIcon,
+    title: 'Premium GFRP Product Portfolio',
+    description:
+      'Comprehensive range of high-performance glass fiber reinforced polymer products engineered for demanding applications',
+    image: '/banner/banner4.jpeg',
+    badge: 'Products',
   },
 ];
 
-const productCategories = [
-  {
-    name: 'GFRP Rebar Bars',
-    description: 'High-strength, corrosion-resistant reinforcement bars for concrete structures',
-    applications: ['Bridge construction', 'Marine structures', 'Chemical plants', 'Highway construction'],
-    image: gfrpReinforcement,
-  },
-  {
-    name: 'GFRP Rebar Bends',
-    description: 'Pre-fabricated rebar bends and hooks for structural connections',
-    applications: ['Foundation corners', 'Beam-column connections', 'Retaining walls', 'Structural joints'],
-    image: applicationsShowcase,
-  },
-];
+const HeroSlider = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % sliderData.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section className="relative">
+      <div className="w-full">
+        <div className="relative">
+          {sliderData.map((slide, index) => (
+            <div
+              key={index}
+              className={`${index === currentSlide ? 'block' : 'hidden'} relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gradient-to-br from-secondary to-secondary/90`}
+            >
+              <div className="absolute inset-0 bg-black/50" />
+              <div 
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
+                style={{ backgroundImage: `url(${slide.image})` }}
+              />
+              <div className="relative h-full flex items-center justify-center">
+                <div className="text-center max-w-5xl px-4 sm:px-6 animate-fade-in">
+                  <Badge
+                    variant="secondary"
+                    className="mb-4 sm:mb-6 bg-primary/30 text-white border-primary/50 text-sm sm:text-lg px-3 sm:px-4 py-1 sm:py-2"
+                  >
+                    {slide.badge}
+                  </Badge>
+                  <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-8 leading-tight">
+                    {slide.title}
+                  </h1>
+                  <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
+                    {slide.description}
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+
+                    <Link to="/blog">
+                      <Button className="w-full sm:w-auto bg-primary/90 backdrop-blur-sm border border-primary/50 text-white hover:bg-primary hover:border-primary/70 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                        Read Blog
+                      </Button>
+                    </Link>
+                    <Link to="/get-quote">
+                      <Button className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-emerald-600 border border-green-400/50 text-white hover:from-green-600 hover:to-emerald-700 hover:border-green-300/70 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                        Get Quote
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+
+          <button
+            onClick={() =>
+              setCurrentSlide(
+                prev => (prev - 1 + sliderData.length) % sliderData.length
+              )
+            }
+            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 bg-white/20 border border-white/30 text-white hover:bg-white/40 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300"
+          >
+            <ArrowRightIcon className="w-4 h-4 sm:w-6 sm:h-6 rotate-180" />
+          </button>
+          <button
+            onClick={() =>
+              setCurrentSlide(prev => (prev + 1) % sliderData.length)
+            }
+            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 bg-white/20 border border-white/30 text-white hover:bg-white/40 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300"
+          >
+            <ArrowRightIcon className="w-4 h-4 sm:w-6 sm:h-6" />
+          </button>
+
+          <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3">
+            {sliderData.map((_, index) => (
+              <button
+                key={index}
+                className="relative w-8 sm:w-12 h-2 sm:h-3 rounded-full bg-white/30 overflow-hidden transition-all duration-300 hover:bg-white/40"
+                onClick={() => setCurrentSlide(index)}
+              >
+                <div
+                  className={`absolute top-0 left-0 h-full bg-primary rounded-full transition-all duration-300 ${
+                    index === currentSlide ? 'w-full animate-pulse' : 'w-0'
+                  }`}
+                  style={{
+                    animation:
+                      index === currentSlide
+                        ? 'fillCapsule 5s linear infinite'
+                        : 'none',
+                  }}
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Index = () => {
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-secondary to-secondary/90 text-secondary-foreground">
-        <div className="absolute inset-0 bg-black/20" />
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-                <span className="text-primary">Vegnar GFRP Rebars</span>
-              </h1>
-              <p className="mt-6 text-lg leading-8 text-secondary-foreground/90">
-                The next generation reinforcement for concrete structures. Advanced, high-strength, 
-                non-corrosive GFRP rebars designed to replace traditional steel reinforcement.
-              </p>
-              <div className="mt-10 flex items-center gap-x-6">
-                <Link to="/materials">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90">
-                    View Products
-                    <ArrowRightIcon className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link to="/contact">
-                  <Button variant="outline" size="lg" className="border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/10">
-                    Get Quote
-                  </Button>
-                </Link>
-              </div>
-            </div>
-            <div className="relative">
-              <img 
-                src={vegnarMilestones} 
-                alt="Vegnar GFRP - Advanced Reinforcement Solutions" 
-                className="w-full h-auto rounded-2xl shadow-2xl"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Slider Section */}
+      <HeroSlider />
 
-      {/* Stats Section */}
-      <section className="bg-primary py-12">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.name} className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <dt className="text-base leading-7 text-primary-foreground/80">{stat.name}</dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-primary-foreground sm:text-5xl">
-                  {stat.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
+      {/* VEGNAR GFRP Overview - Pro Level */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-orange-50/20" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,154,0,0.1),transparent_50%)]" />
 
-      {/* Features Section */}
-      <section className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <Badge variant="outline" className="mb-4">
-              Why Choose GFRP
-            </Badge>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Why Choose Vegnar GFRP Rebars
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-20">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full border border-primary/20 mb-6">
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <span className="text-sm font-semibold text-primary">
+                Industry Pioneer
+              </span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-primary to-secondary bg-clip-text text-transparent mb-8 leading-tight">
+              VEGNAR GFRP
+              <br />
+              <span className="text-4xl md:text-5xl">
+                Engineering Excellence
+              </span>
             </h2>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              Advanced composite rebars offering superior performance characteristics for demanding 
-              structural applications in construction and infrastructure projects.
+            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+              Pioneering the future of construction with revolutionary Glass
+              Fiber Reinforced Polymer technology. Where innovation meets
+              uncompromising quality.
             </p>
           </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
-              {features.map((feature) => (
-                <div key={feature.name} className="flex flex-col">
-                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-foreground">
-                    <feature.icon className="h-5 w-5 flex-none text-primary" aria-hidden="true" />
-                    {feature.name}
-                  </dt>
-                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-foreground">
-                    <p className="flex-auto">{feature.description}</p>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-      </section>
 
-      {/* Product Categories Overview */}
-      <section className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <Badge variant="outline" className="mb-4">
-              Product Portfolio
-            </Badge>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Our GFRP Rebar Products
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              Comprehensive range of GFRP reinforcement solutions including straight bars and 
-              pre-fabricated bends engineered for every structural requirement.
-            </p>
-          </div>
-          
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-2">
-            {productCategories.map((category, index) => (
-              <Card key={index} className="bg-card shadow-card overflow-hidden">
-                <div className="h-64 bg-gradient-to-br from-muted to-muted/50" 
-                     style={{ backgroundImage: `url(${category.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-                <CardHeader>
-                  <CardTitle>{category.name}</CardTitle>
-                  <CardDescription>{category.description}</CardDescription>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-2xl rounded-3xl p-8 group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-2">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-full -translate-y-16 translate-x-16" />
+                <CardHeader className="pb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <ShieldCheckIcon className="h-8 w-8 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold text-gray-900">
+                    Corrosion Immunity
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-sm text-foreground">Key Applications:</h4>
-                    <ul className="space-y-2">
-                      {category.applications.map((app, idx) => (
-                        <li key={idx} className="flex items-center gap-2">
-                          <CheckCircleIcon className="h-4 w-4 text-primary" />
-                          <span className="text-sm text-muted-foreground">{app}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    Complete resistance to chemical attack, saltwater corrosion,
+                    and environmental degradation. Perfect for marine structures
+                    and harsh environments.
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="text-3xl font-black bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                      100%
+                    </div>
+                    <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                      Corrosion Free
+                    </div>
                   </div>
                 </CardContent>
               </Card>
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Link to="/materials">
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
-                View All Products
-                <ArrowRightIcon className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
+            </div>
+
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-2xl rounded-3xl p-8 group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-2">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/10 to-transparent rounded-full -translate-y-16 translate-x-16" />
+                <CardHeader className="pb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-secondary to-secondary/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <BeakerIcon className="h-8 w-8 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold text-gray-900">
+                    Superior Strength
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    High tensile strength comparable to steel while being
+                    significantly lighter. Reduces structural dead load and
+                    transportation costs.
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="text-3xl font-black bg-gradient-to-r from-secondary to-secondary/80 bg-clip-text text-transparent">
+                      75%
+                    </div>
+                    <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                      Lighter
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-2xl rounded-3xl p-8 group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-2">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-500/10 to-transparent rounded-full -translate-y-16 translate-x-16" />
+                <CardHeader className="pb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <CogIcon className="h-8 w-8 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold text-gray-900">
+                    Smart Properties
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    Non-magnetic, non-conductive, and electromagnetic
+                    transparent properties. Perfect for MRI facilities and
+                    sensitive installations.
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="text-3xl font-black bg-gradient-to-r from-emerald-500 to-emerald-600 bg-clip-text text-transparent">
+                      EMI
+                    </div>
+                    <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                      Transparent
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Company Experience & About Us */}
-      <section className="bg-muted py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-            <div className="lg:pr-8 lg:pt-4">
-              <div className="lg:max-w-lg">
-                <Badge variant="outline" className="mb-4">
-                  About Vegnar GFRP
-                </Badge>
-                <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                  15+ Years of GFRP Rebar Excellence
-                </h2>
-                <p className="mt-6 text-base leading-7 text-muted-foreground">
-                  Founded in 2010, Vegnar GFRP has established itself as a leading manufacturer of 
-                  GFRP rebars and reinforcement solutions. Our journey began with a vision to 
-                  revolutionize concrete reinforcement through advanced composite rebar technology.
-                </p>
-                <p className="mt-6 text-base leading-7 text-muted-foreground">
-                  Today, we serve clients across construction, infrastructure, and marine industries with 
-                  innovative GFRP rebar solutions that offer superior corrosion resistance, lightweight 
-                  properties, and exceptional durability compared to traditional steel reinforcement.
-                </p>
-                <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-muted-foreground lg:max-w-none">
-                  <div className="relative pl-9">
-                    <dt className="inline font-semibold text-foreground">
-                      <ClockIcon className="absolute left-1 top-1 h-5 w-5 text-primary" />
-                      Established Excellence.
-                    </dt>
-                    <dd className="inline"> Operating since 2010 with consistent growth and innovation in GFRP technology.</dd>
+      {/* Technical Specifications - Pro Level */}
+      <section className="relative py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,154,0,0.1),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.1),transparent_70%)]" />
+
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-secondary/20 px-4 py-2 rounded-full border border-primary/30 mb-8">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                <span className="text-sm font-semibold text-primary">
+                  Technical Excellence
+                </span>
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                Advanced GFRP
+                <br />
+                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Specifications
+                </span>
+              </h2>
+
+              <p className="text-xl text-gray-300 mb-12 leading-relaxed">
+                Engineered to exceed industry standards with superior mechanical
+                properties and long-term durability.
+              </p>
+
+              <div className="grid grid-cols-2 gap-6 mb-12">
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300" />
+                  <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl group-hover:bg-white/15 transition-all duration-300">
+                    <div className="text-4xl font-black text-primary mb-2">
+                      1000+
+                    </div>
+                    <div className="text-sm font-semibold text-gray-300 uppercase tracking-wide">
+                      MPa Tensile Strength
+                    </div>
                   </div>
-                  <div className="relative pl-9">
-                    <dt className="inline font-semibold text-foreground">
-                      <GlobeAltIcon className="absolute left-1 top-1 h-5 w-5 text-primary" />
-                      Global Reach.
-                    </dt>
-                    <dd className="inline"> Serving clients across India and expanding international presence in Southeast Asia.</dd>
+                </div>
+
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300" />
+                  <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl group-hover:bg-white/15 transition-all duration-300">
+                    <div className="text-4xl font-black text-secondary mb-2">
+                      50+
+                    </div>
+                    <div className="text-sm font-semibold text-gray-300 uppercase tracking-wide">
+                      GPa Elastic Modulus
+                    </div>
                   </div>
-                  <div className="relative pl-9">
-                    <dt className="inline font-semibold text-foreground">
-                      <AcademicCapIcon className="absolute left-1 top-1 h-5 w-5 text-primary" />
-                      GFRP Expertise.
-                    </dt>
-                    <dd className="inline"> Specialized in GFRP rebar manufacturing with advanced pultrusion technology and quality control.</dd>
+                </div>
+
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300" />
+                  <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl group-hover:bg-white/15 transition-all duration-300">
+                    <div className="text-4xl font-black text-emerald-400 mb-2">
+                      100+
+                    </div>
+                    <div className="text-sm font-semibold text-gray-300 uppercase tracking-wide">
+                      Years Service Life
+                    </div>
                   </div>
-                </dl>
+                </div>
+
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-purple-500/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300" />
+                  <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl group-hover:bg-white/15 transition-all duration-300">
+                    <div className="text-3xl font-black text-purple-400 mb-2">
+                      -40°C
+                    </div>
+                    <div className="text-sm font-semibold text-gray-300 uppercase tracking-wide">
+                      to +80°C Range
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="flex items-start justify-end lg:order-first">
-              <img
-                className="aspect-[4/3] w-[48rem] max-w-none rounded-xl bg-gray-900 object-cover shadow-xl"
-                src={companyFacility}
-                alt="Vegnar GFRP manufacturing facility"
-              />
+
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
+              <div className="relative overflow-hidden rounded-3xl">
+                <img
+                  src={gfrpReinforcement}
+                  alt="VEGNAR GFRP Technical Specifications"
+                  className="w-full h-auto group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4">
+                    <div className="text-white font-semibold text-lg">
+                      Advanced Composite Technology
+                    </div>
+                    <div className="text-gray-300 text-sm mt-1">
+                      Precision-engineered for optimal performance
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Company Highlights */}
-      <section className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Why Choose Vegnar GFRP Rebars
+      {/* Applications & Industries - Pro Level */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]" />
+
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-20">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-4 py-2 rounded-full border border-blue-500/20 mb-8">
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
+              <span className="text-sm font-semibold text-blue-600">
+                Global Applications
+              </span>
+            </div>
+
+            <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-gray-900 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                VEGNAR GFRP
+              </span>
+              <br />
+              <span className="text-4xl md:text-5xl text-gray-700">
+                Applications
+              </span>
             </h2>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              Our commitment to quality, innovation, and customer satisfaction sets us apart 
-              in the GFRP reinforcement industry.
+
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Trusted by engineers worldwide for critical infrastructure and
+              specialized construction projects across diverse industries and
+              challenging environments.
             </p>
           </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-              {companyHighlights.map((highlight) => (
-                <div key={highlight.name} className="flex flex-col">
-                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-foreground">
-                    <highlight.icon className="h-5 w-5 flex-none text-primary" />
-                    {highlight.name}
-                  </dt>
-                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-muted-foreground">
-                    <p className="flex-auto">{highlight.description}</p>
-                  </dd>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-blue-600/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-2xl rounded-3xl p-8 text-center group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-3">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                    <BuildingOfficeIcon className="h-10 w-10 text-white" />
+                  </div>
                 </div>
-              ))}
-            </dl>
+                <div className="pt-8">
+                  <CardTitle className="text-2xl font-bold text-gray-900 mb-4">
+                    Marine Structures
+                  </CardTitle>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    Ports, harbors, offshore platforms, and coastal
+                    infrastructure requiring superior corrosion resistance.
+                  </p>
+                  <div className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm">
+                    <span>Saltwater Resistant</span>
+                    <div className="w-1 h-1 bg-blue-600 rounded-full" />
+                    <span>100+ Years</span>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-emerald-600/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-2xl rounded-3xl p-8 text-center group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-3">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                    <AcademicCapIcon className="h-10 w-10 text-white" />
+                  </div>
+                </div>
+                <div className="pt-8">
+                  <CardTitle className="text-2xl font-bold text-gray-900 mb-4">
+                    Medical Facilities
+                  </CardTitle>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    MRI rooms, hospitals, and electromagnetic sensitive areas
+                    requiring non-conductive materials.
+                  </p>
+                  <div className="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm">
+                    <span>EMI Transparent</span>
+                    <div className="w-1 h-1 bg-emerald-600 rounded-full" />
+                    <span>Non-Magnetic</span>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-orange-600/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-2xl rounded-3xl p-8 text-center group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-3">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                    <CogIcon className="h-10 w-10 text-white" />
+                  </div>
+                </div>
+                <div className="pt-8">
+                  <CardTitle className="text-2xl font-bold text-gray-900 mb-4">
+                    Chemical Plants
+                  </CardTitle>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    Processing facilities, storage tanks, and corrosive
+                    environments demanding chemical resistance.
+                  </p>
+                  <div className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm">
+                    <span>Chemical Proof</span>
+                    <div className="w-1 h-1 bg-orange-600 rounded-full" />
+                    <span>High Temp</span>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-purple-600/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-2xl rounded-3xl p-8 text-center group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-3">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                    <TrophyIcon className="h-10 w-10 text-white" />
+                  </div>
+                </div>
+                <div className="pt-8">
+                  <CardTitle className="text-2xl font-bold text-gray-900 mb-4">
+                    Infrastructure
+                  </CardTitle>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    Bridges, tunnels, highways, and critical infrastructure
+                    projects requiring long-term durability.
+                  </p>
+                  <div className="inline-flex items-center gap-2 text-purple-600 font-semibold text-sm">
+                    <span>Load Bearing</span>
+                    <div className="w-1 h-1 bg-purple-600 rounded-full" />
+                    <span>Lightweight</span>
+                  </div>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Team & Expertise */}
+      {/* Company Excellence */}
       <section className="bg-secondary py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <img
-                className="aspect-[3/2] w-full rounded-xl object-cover shadow-xl"
-                src={companyTeam}
-                alt="Vegnar GFRP engineering team"
+                src={companyFacility}
+                alt="VEGNAR GFRP Manufacturing Excellence"
+                className="w-full h-auto rounded-2xl shadow-2xl"
               />
             </div>
-            <div className="flex items-center lg:pl-8">
-              <div className="lg:max-w-lg">
-                <h2 className="text-3xl font-bold tracking-tight text-secondary-foreground sm:text-4xl">
-                  Expert Team & GFRP Excellence
-                </h2>
-                <p className="mt-6 text-lg leading-8 text-secondary-foreground/90">
-                  Our specialized team combines decades of experience in GFRP rebar technology, 
-                  structural engineering, and manufacturing to deliver world-class reinforcement solutions.
-                </p>
-                <div className="mt-8 grid grid-cols-2 gap-8">
-                  <div>
-                    <div className="text-3xl font-bold text-secondary-foreground">50+</div>
-                    <div className="text-secondary-foreground/80">Engineers & Scientists</div>
+            <div>
+              <Badge variant="secondary" className="mb-4">
+                Manufacturing Excellence
+              </Badge>
+              <h2 className="text-3xl font-bold tracking-tight text-secondary-foreground sm:text-4xl mb-6">
+                VEGNAR GFRP Excellence
+              </h2>
+              <p className="text-lg text-secondary-foreground/90 mb-8">
+                State-of-the-art manufacturing facilities with advanced
+                pultrusion technology, ensuring consistent quality and superior
+                performance in every GFRP product.
+              </p>
+
+              <div className="grid grid-cols-2 gap-6">
+                <div>
+                  <div className="text-3xl font-bold text-secondary-foreground">
+                    25+
                   </div>
-                  <div>
-                    <div className="text-3xl font-bold text-secondary-foreground">1000+</div>
-                    <div className="text-secondary-foreground/80">Projects Completed</div>
+                  <div className="text-secondary-foreground/80">
+                    Years Experience
                   </div>
-                  <div>
-                    <div className="text-3xl font-bold text-secondary-foreground">25+</div>
-                    <div className="text-secondary-foreground/80">Patents & Research</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-secondary-foreground">
+                    5000+
                   </div>
-                  <div>
-                    <div className="text-3xl font-bold text-secondary-foreground">ISO</div>
-                    <div className="text-secondary-foreground/80">Quality Certified</div>
+                  <div className="text-secondary-foreground/80">
+                    Projects Completed
+                  </div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-secondary-foreground">
+                    50+
+                  </div>
+                  <div className="text-secondary-foreground/80">
+                    Countries Served
+                  </div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-secondary-foreground">
+                    ISO
+                  </div>
+                  <div className="text-secondary-foreground/80">
+                    Certified Quality
                   </div>
                 </div>
               </div>
@@ -376,142 +599,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Products Preview */}
-      <section className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              GFRP Rebar Solutions
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              Complete range of GFRP rebars for construction, marine, and infrastructure applications
-            </p>
-          </div>
-          
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
-            <Card className="bg-card shadow-card">
-              <CardHeader>
-                <div className="h-48 bg-gradient-to-br from-muted to-muted/50 rounded-lg mb-4" 
-                     style={{ backgroundImage: `url(${materialsShowcase})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-                <CardTitle>Standard GFRP</CardTitle>
-                <CardDescription>
-                  Cost-effective solutions for general construction and infrastructure applications
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2">
-                    <CheckCircleIcon className="h-4 w-4 text-primary" />
-                    <span className="text-sm">Excellent strength-to-weight ratio</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircleIcon className="h-4 w-4 text-primary" />
-                    <span className="text-sm">Corrosion resistant</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircleIcon className="h-4 w-4 text-primary" />
-                    <span className="text-sm">Easy installation</span>
-                  </li>
-                </ul>
-                <Link to="/materials" className="block mt-4">
-                  <Button variant="outline" className="w-full">
-                    View All Materials
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card shadow-card">
-              <CardHeader>
-                <div className="h-48 bg-gradient-to-br from-muted to-muted/50 rounded-lg mb-4" 
-                     style={{ backgroundImage: `url(${manufacturing})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-                <CardTitle>High Performance</CardTitle>
-                <CardDescription>
-                  Advanced composites for demanding structural and marine applications
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2">
-                    <CheckCircleIcon className="h-4 w-4 text-primary" />
-                    <span className="text-sm">Superior tensile strength</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircleIcon className="h-4 w-4 text-primary" />
-                    <span className="text-sm">Marine grade durability</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircleIcon className="h-4 w-4 text-primary" />
-                    <span className="text-sm">Fire retardant options</span>
-                  </li>
-                </ul>
-                <Link to="/case-studies" className="block mt-4">
-                  <Button variant="outline" className="w-full">
-                    View Case Studies
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card shadow-card">
-              <CardHeader>
-                <div className="h-48 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg mb-4 flex items-center justify-center">
-                  <ChartBarIcon className="h-16 w-16 text-primary" />
-                </div>
-                <CardTitle>Technical Support</CardTitle>
-                <CardDescription>
-                  Comprehensive documentation, testing data, and engineering support
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2">
-                    <CheckCircleIcon className="h-4 w-4 text-primary" />
-                    <span className="text-sm">Material datasheets</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircleIcon className="h-4 w-4 text-primary" />
-                    <span className="text-sm">Performance testing</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircleIcon className="h-4 w-4 text-primary" />
-                    <span className="text-sm">Engineering consultation</span>
-                  </li>
-                </ul>
-                <Link to="/contact" className="block mt-4">
-                  <Button variant="outline" className="w-full">
-                    Contact Support
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-secondary">
-        <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-secondary-foreground sm:text-4xl">
-              Ready to get started?
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-secondary-foreground/80">
-              Contact our technical team to discuss your project requirements and find the perfect GFRP solution.
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link to="/contact">
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
-                  Get Started
-                </Button>
-              </Link>
-              <Link to="/materials" className="text-sm font-semibold leading-6 text-secondary-foreground hover:text-primary transition-colors">
-                Browse Materials <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Spacer before footer */}
+      <div className="py-2 bg-gradient-to-b from-transparent to-muted/20" />
     </div>
   );
 };
