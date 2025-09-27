@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
@@ -127,7 +128,7 @@ const Index = () => {
   return (
     <div>
       {/* Hero Banner Section */}
-      <HeroBanner />
+      <HeroSlider />
 
       {/* VEGNAR GFRP Overview - Pro Level */}
       <section className="relative py-32 overflow-hidden">
