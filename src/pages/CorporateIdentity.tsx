@@ -8,6 +8,7 @@ import {
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import companyFacility from '@/assets/company-facility.jpg';
+import corporateBackground from '@/assets/corporate.jpeg';
 
 const corporateDocuments = [
   {
@@ -25,9 +26,15 @@ export default function CorporateIdentity() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-900 via-orange-800 to-orange-900" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,154,0,0.2),transparent_70%)]" />
+      <section className="relative py-32 overflow-hidden h-[500px]">
+        <div 
+          className="absolute inset-0 bg-no-repeat bg-center"
+          style={{ 
+            backgroundImage: `url(${corporateBackground})`,
+            backgroundSize: '100% 100%'
+          }}
+        />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight animate-fade-in">

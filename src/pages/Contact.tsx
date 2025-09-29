@@ -28,6 +28,7 @@ import {
   BuildingOfficeIcon,
   GlobeAltIcon,
 } from '@heroicons/react/24/outline';
+import contactBackground from '@/assets/contact.jpeg';
 
 export default function Contact() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -94,9 +95,15 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-900 via-orange-800 to-orange-900" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,154,0,0.2),transparent_70%)]" />
+      <section className="relative py-20 overflow-hidden h-[500px]">
+        <div 
+          className="absolute inset-0 bg-no-repeat bg-center"
+          style={{ 
+            backgroundImage: `url(${contactBackground})`,
+            backgroundSize: '100% 100%'
+          }}
+        />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight animate-fade-in">
