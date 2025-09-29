@@ -24,45 +24,24 @@ const corporateDocuments = [
 export default function CorporateIdentity() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="relative py-32 overflow-hidden"
-      >
+      {/* Header */}
+      <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-900 via-orange-800 to-orange-900" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,154,0,0.2),transparent_70%)]" />
-
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight"
-            >
+            <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight animate-fade-in">
               <span className="bg-gradient-to-r from-orange-300 to-yellow-300 bg-clip-text text-transparent">
-                VEGNAR GFRP
+                CORPORATE
               </span>
               <br />
               <span className="text-5xl md:text-6xl text-orange-100">
-                Corporate Identity
+                IDENTITY
               </span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl text-orange-100 leading-relaxed max-w-3xl mx-auto"
-            >
-              Discover our corporate identity, company profile, and
-              comprehensive documentation showcasing VEGNAR GFRP's vision,
-              mission, and industry leadership.
-            </motion.p>
+            </h1>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Corporate Documents Section */}
       <motion.section

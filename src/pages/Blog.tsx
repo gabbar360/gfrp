@@ -110,16 +110,20 @@ export default function Blog() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <section className="bg-gradient-to-r from-secondary to-secondary/90 text-secondary-foreground py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-              Technical Blog
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-900 via-orange-800 to-orange-900" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,154,0,0.2),transparent_70%)]" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight animate-fade-in">
+              <span className="bg-gradient-to-r from-orange-300 to-yellow-300 bg-clip-text text-transparent">
+                TECHNICAL
+              </span>
+              <br />
+              <span className="text-5xl md:text-6xl text-orange-100">
+                BLOG
+              </span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-secondary-foreground/90">
-              Insights, innovations, and technical guidance from the world of
-              GFRP materials
-            </p>
           </div>
         </div>
       </section>
