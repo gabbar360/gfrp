@@ -17,7 +17,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { ContactFormData } from '@/lib/types';
 import {
@@ -26,6 +25,8 @@ import {
   MapPinIcon,
   ClockIcon,
   PaperAirplaneIcon,
+  BuildingOfficeIcon,
+  GlobeAltIcon,
 } from '@heroicons/react/24/outline';
 
 export default function Contact() {
@@ -91,243 +92,232 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="relative bg-gradient-to-r from-secondary to-secondary/90 text-white py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-40"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-gray-900/70"></div>
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-900 via-orange-800 to-orange-900" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,154,0,0.2),transparent_70%)]" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl text-white drop-shadow-2xl">
-              Contact Us
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight animate-fade-in">
+              <span className="bg-gradient-to-r from-orange-300 to-yellow-300 bg-clip-text text-transparent">
+                GET IN
+              </span>
+              <br />
+              <span className="text-5xl md:text-6xl text-orange-100">
+                TOUCH
+              </span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-white/90 drop-shadow-lg">
-              Get in touch with our technical team for expert guidance on GFRP
-              solutions
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Info */}
-      <section className="py-16">
+      {/* Main Contact Section - 50/50 Split */}
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          {/* Contact Form */}
-          <div className="mb-16">
-            <Card className="shadow-xl border-0 bg-gradient-to-br from-white to-gray-50">
-              <CardHeader className="text-center pb-8">
-                <CardTitle className="text-3xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                  Send us a message
-                </CardTitle>
-                <CardDescription className="text-lg text-muted-foreground mt-2">
-                  Fill out the form below and we'll get back to you as soon as
-                  possible.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-3">
-                      <Label
-                        htmlFor="name"
-                        className="text-sm font-semibold text-gray-700"
-                      >
-                        Name *
-                      </Label>
-                      <Input
-                        id="name"
-                        required
-                        value={formData.name}
-                        onChange={e =>
-                          handleInputChange('name', e.target.value)
-                        }
-                        placeholder="Your full name"
-                        className="h-12 border-2 border-gray-200 focus:border-primary transition-colors"
-                      />
-                    </div>
-                    <div className="space-y-3">
-                      <Label
-                        htmlFor="email"
-                        className="text-sm font-semibold text-gray-700"
-                      >
-                        Email *
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={e =>
-                          handleInputChange('email', e.target.value)
-                        }
-                        placeholder="your.email@company.com"
-                        className="h-12 border-2 border-gray-200 focus:border-primary transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-3">
-                      <Label
-                        htmlFor="company"
-                        className="text-sm font-semibold text-gray-700"
-                      >
-                        Company
-                      </Label>
-                      <Input
-                        id="company"
-                        value={formData.company}
-                        onChange={e =>
-                          handleInputChange('company', e.target.value)
-                        }
-                        placeholder="Your company name"
-                        className="h-12 border-2 border-gray-200 focus:border-primary transition-colors"
-                      />
-                    </div>
-                    <div className="space-y-3">
-                      <Label
-                        htmlFor="phone"
-                        className="text-sm font-semibold text-gray-700"
-                      >
-                        Phone
-                      </Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={e =>
-                          handleInputChange('phone', e.target.value)
-                        }
-                        placeholder="+91 12345 67890"
-                        className="h-12 border-2 border-gray-200 focus:border-primary transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <Label className="text-sm font-semibold text-gray-700">
-                      Country
-                    </Label>
-                    <Select value={formData.country} onValueChange={(value) => handleInputChange('country', value)}>
-                      <SelectTrigger className="h-12 border-2 border-gray-200 focus:border-primary">
-                        <SelectValue placeholder="Select your country" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="india">India</SelectItem>
-                        <SelectItem value="usa">United States</SelectItem>
-                        <SelectItem value="uk">United Kingdom</SelectItem>
-                        <SelectItem value="canada">Canada</SelectItem>
-                        <SelectItem value="australia">Australia</SelectItem>
-                        <SelectItem value="germany">Germany</SelectItem>
-                        <SelectItem value="france">France</SelectItem>
-                        <SelectItem value="japan">Japan</SelectItem>
-                        <SelectItem value="china">China</SelectItem>
-                        <SelectItem value="brazil">Brazil</SelectItem>
-                        <SelectItem value="mexico">Mexico</SelectItem>
-                        <SelectItem value="south-africa">South Africa</SelectItem>
-                        <SelectItem value="uae">United Arab Emirates</SelectItem>
-                        <SelectItem value="singapore">Singapore</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-3">
-                    <Label
-                      htmlFor="message"
-                      className="text-sm font-semibold text-gray-700"
-                    >
-                      Message *
-                    </Label>
-                    <Textarea
-                      id="message"
-                      required
-                      value={formData.message}
-                      onChange={e =>
-                        handleInputChange('message', e.target.value)
-                      }
-                      placeholder="Please describe your project requirements, technical specifications, or any specific questions you have about our GFRP materials..."
-                      rows={6}
-                      className="border-2 border-gray-200 focus:border-primary transition-colors resize-none"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    size="lg"
-                    disabled={isSubmitting}
-                    className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 transition-all duration-300 shadow-lg hover:shadow-xl"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3" />
-                        Sending Message...
-                      </>
-                    ) : (
-                      <>
-                        <PaperAirplaneIcon className="h-5 w-5 mr-3" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Contact Information */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <PhoneIcon className="h-8 w-8 text-orange-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Call Us</h3>
-                <p className="text-gray-600 mb-2">+91 90333 31031</p>
-                <p className="text-gray-600">+91 90333 31005</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <EnvelopeIcon className="h-8 w-8 text-orange-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Email Us</h3>
-                <p className="text-gray-600">sales@vegnar.com</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MapPinIcon className="h-8 w-8 text-orange-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Visit Us</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  B-623, RK iconic, Sheetal Park,<br />
-                  150 Ft. Ring Road, Rajkot<br />
-                  Gujarat (360006)
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Left Side - Contact Information */}
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  Contact Information
+                </h2>
+                <p className="text-lg text-gray-600 mb-8">
+                  Connect with our team of GFRP specialists. We're committed to providing you with expert guidance and innovative solutions.
                 </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Business Hours */}
-          <Card className="mt-8">
-            <CardContent className="p-8 text-center">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <ClockIcon className="h-6 w-6 text-orange-600" />
-                <h3 className="text-xl font-semibold">Business Hours</h3>
               </div>
-              <p className="text-gray-600 text-lg">
-                Monday - Saturday: 10:00 AM - 7:00 PM
-              </p>
-              <p className="text-gray-500 mt-2">
-                Sunday: Closed
-              </p>
-            </CardContent>
-          </Card>
+
+              {/* Contact Cards */}
+              <div className="space-y-6">
+                <Card className="border-l-4 border-l-orange-500 shadow-lg hover:shadow-xl transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <PhoneIcon className="h-6 w-6 text-orange-600" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">Phone Numbers</h3>
+                        <p className="text-gray-600 mb-1">Sales: +91 90333 31031</p>
+                        <p className="text-gray-600">Support: +91 90333 31005</p>
+                        <p className="text-sm text-gray-500 mt-2">Available Mon-Sat, 10 AM - 7 PM</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-l-4 border-l-orange-500 shadow-lg hover:shadow-xl transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <EnvelopeIcon className="h-6 w-6 text-orange-600" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Address</h3>
+                        <p className="text-gray-600 mb-1">sales@vegnar.com</p>
+                        <p className="text-sm text-gray-500 mt-2">We respond within 24 hours</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-l-4 border-l-orange-500 shadow-lg hover:shadow-xl transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <MapPinIcon className="h-6 w-6 text-orange-600" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">Office Address</h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          B-623, RK Iconic, Sheetal Park,<br />
+                          150 Ft. Ring Road, Rajkot<br />
+                          Gujarat 360006, India
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+              </div>
+            </div>
+
+            {/* Right Side - Contact Form */}
+            <div>
+              <Card className="shadow-2xl border-0 bg-white">
+                <CardHeader className="pb-6">
+                  <CardTitle className="text-2xl font-bold text-gray-900">
+                    Send us a Message
+                  </CardTitle>
+                  <CardDescription className="text-gray-600">
+                    Fill out the form below and we'll get back to you within 24 hours.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="name" className="text-sm font-medium text-gray-700">
+                          Full Name *
+                        </Label>
+                        <Input
+                          id="name"
+                          required
+                          value={formData.name}
+                          onChange={e => handleInputChange('name', e.target.value)}
+                          placeholder="Your full name"
+                          className="h-11 border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+                          Email Address *
+                        </Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={e => handleInputChange('email', e.target.value)}
+                          placeholder="your.email@company.com"
+                          className="h-11 border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="company" className="text-sm font-medium text-gray-700">
+                          Company Name
+                        </Label>
+                        <Input
+                          id="company"
+                          value={formData.company}
+                          onChange={e => handleInputChange('company', e.target.value)}
+                          placeholder="Your company name"
+                          className="h-11 border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="phone" className="text-sm font-medium text-gray-700">
+                          Phone Number
+                        </Label>
+                        <Input
+                          id="phone"
+                          type="tel"
+                          value={formData.phone}
+                          onChange={e => handleInputChange('phone', e.target.value)}
+                          placeholder="+91 12345 67890"
+                          className="h-11 border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label className="text-sm font-medium text-gray-700">
+                        Country
+                      </Label>
+                      <Select value={formData.country} onValueChange={(value) => handleInputChange('country', value)}>
+                        <SelectTrigger className="h-11 border-gray-300 focus:border-orange-500 focus:ring-orange-500">
+                          <SelectValue placeholder="Select your country" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="india">India</SelectItem>
+                          <SelectItem value="usa">United States</SelectItem>
+                          <SelectItem value="uk">United Kingdom</SelectItem>
+                          <SelectItem value="canada">Canada</SelectItem>
+                          <SelectItem value="australia">Australia</SelectItem>
+                          <SelectItem value="germany">Germany</SelectItem>
+                          <SelectItem value="france">France</SelectItem>
+                          <SelectItem value="japan">Japan</SelectItem>
+                          <SelectItem value="china">China</SelectItem>
+                          <SelectItem value="brazil">Brazil</SelectItem>
+                          <SelectItem value="mexico">Mexico</SelectItem>
+                          <SelectItem value="south-africa">South Africa</SelectItem>
+                          <SelectItem value="uae">United Arab Emirates</SelectItem>
+                          <SelectItem value="singapore">Singapore</SelectItem>
+                          <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="message" className="text-sm font-medium text-gray-700">
+                        Message *
+                      </Label>
+                      <Textarea
+                        id="message"
+                        required
+                        value={formData.message}
+                        onChange={e => handleInputChange('message', e.target.value)}
+                        placeholder="Please describe your project requirements, technical specifications, or any questions about our GFRP materials..."
+                        rows={5}
+                        className="border-gray-300 focus:border-orange-500 focus:ring-orange-500 resize-none"
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      size="lg"
+                      disabled={isSubmitting}
+                      className="w-full h-12 text-base font-semibold bg-orange-600 hover:bg-orange-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
+                          Sending Message...
+                        </>
+                      ) : (
+                        <>
+                          <PaperAirplaneIcon className="h-4 w-4 mr-2" />
+                          Send Message
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </div>
       </section>
     </div>
