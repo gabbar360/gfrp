@@ -139,12 +139,8 @@ const Index = () => {
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-20">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full border border-primary/20 mb-6">
-              {/* <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm font-semibold text-primary">
-                Industry Pioneer
-              </span> */}
-            </div>
+            {/* <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full border border-primary/20 mb-6">
+            </div> */}
             <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-primary to-secondary bg-clip-text text-transparent mb-8 leading-tight">
               VEGNAR GFRP
               <br />
@@ -586,69 +582,68 @@ const Index = () => {
             </h3>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
-              {/* iXsell - Europe Importer & Distributor */}
+              {/* Logo 1 */}
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-2xl font-bold text-blue-600">
-                      iXsell
-                    </div>
-                  </div>
-                  <div className="text-xs text-gray-500 font-medium">
-                    Europe
-                  </div>
-                  <div className="text-xs text-gray-600">
-                    Importer & Distributor
+                    <img
+                      src="/images/logo1.png"
+                      alt="Client Logo 1"
+                      className="max-h-20 max-w-full object-contain"
+                    />
                   </div>
                 </div>
               </div>
 
-              {/* Simpolo - Manufacturing Industry */}
+              {/* Logo 2 */}
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-xl font-bold text-gray-800">
-                      Simpolo
-                    </div>
-                  </div>
-                  <div className="text-xs text-gray-600">
-                    Manufacturing Industry
+                    <img
+                      src="/images/logo2.png"
+                      alt="Client Logo 2"
+                      className="max-h-20 max-w-full object-contain"
+                    />
                   </div>
                 </div>
               </div>
 
-              {/* Suntech - Casting Foundry */}
+              {/* Logo 3 */}
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-xl font-bold text-orange-600">
-                      Suntech
-                    </div>
+                    <img
+                      src="/images/logo3.png"
+                      alt="Client Logo 3"
+                      className="max-h-20 max-w-full object-contain"
+                    />
                   </div>
-                  <div className="text-xs text-gray-600">Casting Foundry</div>
                 </div>
               </div>
 
-              {/* Ananta Inc. - USA Consultant */}
+              {/* Logo 4 */}
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-xl font-bold text-blue-600">
-                      ananta
-                    </div>
+                    <img
+                      src="/images/logo4.png"
+                      alt="Client Logo 4"
+                      className="max-h-20 max-w-full object-contain"
+                    />
                   </div>
-                  <div className="text-xs text-gray-500">Ananta Inc.</div>
-                  <div className="text-xs text-gray-600">USA Consultant</div>
                 </div>
               </div>
 
-              {/* ANHIT - Chemical Plant */}
+              {/* Logo 5 */}
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-xl font-bold text-red-600">ANHIT</div>
+                    <img
+                      src="/images/logo5.png"
+                      alt="Client Logo 5"
+                      className="max-h-20 max-w-full object-contain"
+                    />
                   </div>
-                  <div className="text-xs text-gray-600">Chemical Plant</div>
                 </div>
               </div>
             </div>
