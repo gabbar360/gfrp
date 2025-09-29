@@ -44,7 +44,7 @@ const sliderData = [
     title: 'VEGNAR GFRP - Leading Composite Solutions',
     description:
       'Revolutionary Glass Fiber Reinforced Polymer technology transforming construction industry with superior strength and durability',
-    image: '/banner/banner1.jpeg',
+    image: '/banner/banaer0.png',
     badge: 'Innovation',
   },
   {
@@ -87,20 +87,20 @@ const HeroSlider = () => {
           <div className="absolute inset-0 bg-black/50" />
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: 'url(/banner/banner1.jpeg)' }}
+            style={{ backgroundImage: 'url(/banner/banaer0.png)' }}
           />
           <div className="relative h-full flex items-center justify-center">
             <div className="text-center max-w-5xl px-4 sm:px-6">
-              <Badge
+              {/* <Badge
                 variant="secondary"
                 className="mb-4 sm:mb-6 bg-primary/30 text-white border-primary/50 text-sm sm:text-lg px-3 sm:px-4 py-1 sm:py-2"
               >
                 Innovation
-              </Badge>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-8 leading-tight">
+              </Badge> */}
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-orange-600 mb-4 sm:mb-8 leading-tight">
                 VEGNAR GFRP - Leading Composite Solutions
               </h1>
-              <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-orange-600 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
                 Revolutionary Glass Fiber Reinforced Polymer technology
                 transforming construction industry with superior strength and
                 durability
