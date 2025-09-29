@@ -36,6 +36,7 @@ import {
   TrophyIcon,
   ClockIcon,
   GlobeAltIcon,
+  CpuChipIcon,
 } from '@heroicons/react/24/outline';
 
 const sliderData = [
@@ -43,7 +44,7 @@ const sliderData = [
     title: 'VEGNAR GFRP - Leading Composite Solutions',
     description:
       'Revolutionary Glass Fiber Reinforced Polymer technology transforming construction industry with superior strength and durability',
-    image: '/banner/banner1.jpeg',
+    image: '/banner/banaer0.png',
     badge: 'Innovation',
   },
   {
@@ -86,20 +87,20 @@ const HeroSlider = () => {
           <div className="absolute inset-0 bg-black/50" />
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: 'url(/banner/banner1.jpeg)' }}
+            style={{ backgroundImage: 'url(/banner/banaer0.png)' }}
           />
           <div className="relative h-full flex items-center justify-center">
             <div className="text-center max-w-5xl px-4 sm:px-6">
-              <Badge
+              {/* <Badge
                 variant="secondary"
                 className="mb-4 sm:mb-6 bg-primary/30 text-white border-primary/50 text-sm sm:text-lg px-3 sm:px-4 py-1 sm:py-2"
               >
                 Innovation
-              </Badge>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-8 leading-tight">
+              </Badge> */}
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-orange-600 mb-4 sm:mb-8 leading-tight">
                 VEGNAR GFRP - Leading Composite Solutions
               </h1>
-              <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-orange-600 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
                 Revolutionary Glass Fiber Reinforced Polymer technology
                 transforming construction industry with superior strength and
                 durability
@@ -138,12 +139,8 @@ const Index = () => {
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-20">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full border border-primary/20 mb-6">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm font-semibold text-primary">
-                Industry Pioneer
-              </span>
-            </div>
+            {/* <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-secondary/10 px-4 py-2 rounded-full border border-primary/20 mb-6">
+            </div> */}
             <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-primary to-secondary bg-clip-text text-transparent mb-8 leading-tight">
               VEGNAR GFRP
               <br />
@@ -160,28 +157,28 @@ const Index = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#9e5020]/20 to-[#9e5020]/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
               <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-2xl rounded-3xl p-8 group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-2">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-full -translate-y-16 translate-x-16" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#9e5020]/10 to-transparent rounded-full -translate-y-16 translate-x-16" />
                 <CardHeader className="pb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#9e5020] to-[#9e5020]/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                     <ShieldCheckIcon className="h-8 w-8 text-white" />
                   </div>
-                  <CardTitle className="text-2xl font-bold text-gray-900">
+                  <CardTitle className="text-2xl font-bold text-[#9e5020]">
                     Corrosion Immunity
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-[#9e5020]/80 mb-6 leading-relaxed">
                     Complete resistance to chemical attack, saltwater corrosion,
                     and environmental degradation. Perfect for marine structures
                     and harsh environments.
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="text-3xl font-black bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                    <div className="text-3xl font-black bg-gradient-to-r from-[#9e5020] to-[#9e5020]/80 bg-clip-text text-transparent">
                       100%
                     </div>
-                    <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                    <div className="text-sm font-semibold text-[#9e5020]/70 uppercase tracking-wide">
                       Corrosion Free
                     </div>
                   </div>
@@ -190,28 +187,28 @@ const Index = () => {
             </div>
 
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#9e5020]/20 to-[#9e5020]/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
               <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-2xl rounded-3xl p-8 group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-2">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/10 to-transparent rounded-full -translate-y-16 translate-x-16" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#9e5020]/10 to-transparent rounded-full -translate-y-16 translate-x-16" />
                 <CardHeader className="pb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-secondary to-secondary/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#9e5020] to-[#9e5020]/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                     <BeakerIcon className="h-8 w-8 text-white" />
                   </div>
-                  <CardTitle className="text-2xl font-bold text-gray-900">
+                  <CardTitle className="text-2xl font-bold text-[#9e5020]">
                     Superior Strength
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-[#9e5020]/80 mb-6 leading-relaxed">
                     High tensile strength comparable to steel while being
                     significantly lighter. Reduces structural dead load and
                     transportation costs.
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="text-3xl font-black bg-gradient-to-r from-secondary to-secondary/80 bg-clip-text text-transparent">
+                    <div className="text-3xl font-black bg-gradient-to-r from-[#9e5020] to-[#9e5020]/80 bg-clip-text text-transparent">
                       75%
                     </div>
-                    <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                    <div className="text-sm font-semibold text-[#9e5020]/70 uppercase tracking-wide">
                       Lighter
                     </div>
                   </div>
@@ -220,29 +217,29 @@ const Index = () => {
             </div>
 
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#9e5020]/20 to-[#9e5020]/5 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
               <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-2xl rounded-3xl p-8 group-hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-2">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-500/10 to-transparent rounded-full -translate-y-16 translate-x-16" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#9e5020]/10 to-transparent rounded-full -translate-y-16 translate-x-16" />
                 <CardHeader className="pb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <CogIcon className="h-8 w-8 text-white" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#9e5020] to-[#9e5020]/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <CpuChipIcon className="h-8 w-8 text-white" />
                   </div>
-                  <CardTitle className="text-2xl font-bold text-gray-900">
+                  <CardTitle className="text-2xl font-bold text-[#9e5020]">
                     Smart Properties
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    Non-magnetic, non-conductive, and electromagnetic
-                    transparent properties. Perfect for MRI facilities and
-                    sensitive installations.
+                  <p className="text-[#9e5020]/80 mb-6 leading-relaxed">
+                    Advanced composite engineering with customizable properties.
+                    Tailored solutions for specific structural requirements and
+                    environmental conditions.
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="text-3xl font-black bg-gradient-to-r from-emerald-500 to-emerald-600 bg-clip-text text-transparent">
-                      EMI
+                    <div className="text-3xl font-black bg-gradient-to-r from-[#9e5020] to-[#9e5020]/80 bg-clip-text text-transparent">
+                      50+
                     </div>
-                    <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
-                      Transparent
+                    <div className="text-sm font-semibold text-[#9e5020]/70 uppercase tracking-wide">
+                      Years Lifespan
                     </div>
                   </div>
                 </CardContent>
@@ -261,69 +258,69 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-secondary/20 px-4 py-2 rounded-full border border-primary/30 mb-8">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                {/* <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                 <span className="text-sm font-semibold text-primary">
                   Technical Excellence
-                </span>
+                </span> */}
               </div>
 
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Advanced GFRP
                 <br />
-                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                <span className="text-white">
                   Specifications
                 </span>
               </h2>
 
-              <p className="text-xl text-gray-300 mb-12 leading-relaxed">
+              <p className="text-xl text-white mb-12 leading-relaxed">
                 Engineered to exceed industry standards with superior mechanical
                 properties and long-term durability.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-12">
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300" />
                   <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl group-hover:bg-white/15 transition-all duration-300">
-                    <div className="text-4xl font-black text-primary mb-2">
+                    <div className="text-4xl font-black text-white mb-2">
                       1000+
                     </div>
-                    <div className="text-sm font-semibold text-gray-300 uppercase tracking-wide">
+                    <div className="text-sm font-semibold text-white uppercase tracking-wide">
                       MPa Tensile Strength
                     </div>
                   </div>
                 </div>
 
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300" />
                   <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl group-hover:bg-white/15 transition-all duration-300">
-                    <div className="text-4xl font-black text-secondary mb-2">
+                    <div className="text-4xl font-black text-white mb-2">
                       50+
                     </div>
-                    <div className="text-sm font-semibold text-gray-300 uppercase tracking-wide">
+                    <div className="text-sm font-semibold text-white uppercase tracking-wide">
                       GPa Elastic Modulus
                     </div>
                   </div>
                 </div>
 
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300" />
                   <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl group-hover:bg-white/15 transition-all duration-300">
-                    <div className="text-4xl font-black text-emerald-400 mb-2">
+                    <div className="text-4xl font-black text-white mb-2">
                       100+
                     </div>
-                    <div className="text-sm font-semibold text-gray-300 uppercase tracking-wide">
+                    <div className="text-sm font-semibold text-white uppercase tracking-wide">
                       Years Service Life
                     </div>
                   </div>
                 </div>
 
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-purple-500/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300" />
                   <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl group-hover:bg-white/15 transition-all duration-300">
-                    <div className="text-3xl font-black text-purple-400 mb-2">
+                    <div className="text-3xl font-black text-white mb-2">
                       -40°C
                     </div>
-                    <div className="text-sm font-semibold text-gray-300 uppercase tracking-wide">
+                    <div className="text-sm font-semibold text-white uppercase tracking-wide">
                       to +80°C Range
                     </div>
                   </div>
@@ -332,7 +329,7 @@ const Index = () => {
             </div>
 
             <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-white/10 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
               <div className="relative overflow-hidden rounded-3xl">
                 <img
                   src={gfrpReinforcement}
@@ -345,7 +342,7 @@ const Index = () => {
                     <div className="text-white font-semibold text-lg">
                       Advanced Composite Technology
                     </div>
-                    <div className="text-gray-300 text-sm mt-1">
+                    <div className="text-white text-sm mt-1">
                       Precision-engineered for optimal performance
                     </div>
                   </div>
@@ -585,76 +582,75 @@ const Index = () => {
             </h3>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
-              {/* iXsell - Europe Importer & Distributor */}
+              {/* Logo 1 */}
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-2xl font-bold text-blue-600">
-                      iXsell
-                    </div>
-                  </div>
-                  <div className="text-xs text-gray-500 font-medium">
-                    Europe
-                  </div>
-                  <div className="text-xs text-gray-600">
-                    Importer & Distributor
+                    <img
+                      src="/images/logo1.png"
+                      alt="Client Logo 1"
+                      className="max-h-20 max-w-full object-contain"
+                    />
                   </div>
                 </div>
               </div>
 
-              {/* Simpolo - Manufacturing Industry */}
+              {/* Logo 2 */}
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-xl font-bold text-gray-800">
-                      Simpolo
-                    </div>
-                  </div>
-                  <div className="text-xs text-gray-600">
-                    Manufacturing Industry
+                    <img
+                      src="/images/logo2.png"
+                      alt="Client Logo 2"
+                      className="max-h-20 max-w-full object-contain"
+                    />
                   </div>
                 </div>
               </div>
 
-              {/* Suntech - Casting Foundry */}
+              {/* Logo 3 */}
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-xl font-bold text-orange-600">
-                      Suntech
-                    </div>
+                    <img
+                      src="/images/logo3.png"
+                      alt="Client Logo 3"
+                      className="max-h-20 max-w-full object-contain"
+                    />
                   </div>
-                  <div className="text-xs text-gray-600">Casting Foundry</div>
                 </div>
               </div>
 
-              {/* Ananta Inc. - USA Consultant */}
+              {/* Logo 4 */}
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-xl font-bold text-blue-600">
-                      ananta
-                    </div>
+                    <img
+                      src="/images/logo4.png"
+                      alt="Client Logo 4"
+                      className="max-h-20 max-w-full object-contain"
+                    />
                   </div>
-                  <div className="text-xs text-gray-500">Ananta Inc.</div>
-                  <div className="text-xs text-gray-600">USA Consultant</div>
                 </div>
               </div>
 
-              {/* ANHIT - Chemical Plant */}
+              {/* Logo 5 */}
               <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-center">
                   <div className="h-16 flex items-center justify-center mb-3">
-                    <div className="text-xl font-bold text-red-600">ANHIT</div>
+                    <img
+                      src="/images/logo5.png"
+                      alt="Client Logo 5"
+                      className="max-h-20 max-w-full object-contain"
+                    />
                   </div>
-                  <div className="text-xs text-gray-600">Chemical Plant</div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Client Statistics */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="group">
               <div className="text-4xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                 500+
@@ -687,7 +683,7 @@ const Index = () => {
                 Satisfaction
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 

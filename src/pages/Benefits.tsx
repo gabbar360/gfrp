@@ -13,6 +13,7 @@ import {
   FireIcon,
   WrenchScrewdriverIcon,
 } from '@heroicons/react/24/outline';
+import benefitsBackground from '@/assets/benefits-background.jpeg';
 
 const benefits = [
   {
@@ -211,26 +212,27 @@ const comparisonData = [
 export default function Benefits() {
   return (
     <div className="bg-background">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-secondary via-secondary/95 to-secondary/90 text-secondary-foreground overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary/50 to-transparent" />
-        <div className="relative mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
+      {/* Header */}
+      <section className="relative py-32 overflow-hidden h-[500px]">
+        <div 
+          className="absolute inset-0 bg-no-repeat bg-center"
+          style={{ 
+            backgroundImage: `url(${benefitsBackground})`,
+            backgroundSize: '100% 100%'
+          }}
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            {/* <div className="flex justify-center mb-6">
-              <Badge variant="outline" className="mb-4 border-secondary-foreground/30 bg-secondary-foreground/10 backdrop-blur-sm">
-                <ChartBarIcon className="h-4 w-4 mr-2" />
-                Technical Advantages
-              </Badge>
-            </div> */}
-            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl bg-gradient-to-r from-white to-secondary-foreground/80 bg-clip-text text-transparent">
-              Benefits of GFRP
+            <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight animate-fade-in">
+              <span className="bg-gradient-to-r from-orange-300 to-yellow-300 bg-clip-text text-transparent">
+                Benefits of
+              </span>
+              <br />
+              <span className="text-5xl md:text-6xl text-orange-100">
+                GFRP REBARS
+              </span>
             </h1>
-            <p className="mt-8 text-xl leading-8 text-secondary-foreground/90 max-w-3xl mx-auto">
-              Discover why GFRP rebars are revolutionizing the construction
-              industry with superior performance, durability, and
-              cost-effectiveness compared to traditional steel reinforcement.
-            </p>
           </div>
         </div>
       </section>

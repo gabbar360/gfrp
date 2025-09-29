@@ -12,16 +12,23 @@ import companyFacility from '@/assets/company-facility.jpg';
 import manufacturing from '@/assets/manufacturing.jpg';
 import gfrpIntroduction from '@/assets/gfrp-introduction.jpg';
 import materialSamples from '@/assets/material-samples.jpg';
+import aboutBackground from '@/assets/About.jpeg';
 
 export default function About() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-900 via-orange-800 to-orange-900" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,154,0,0.2),transparent_70%)]" />
+      <section className="relative py-32 overflow-hidden h-[500px]">
+        <div 
+          className="absolute inset-0 bg-no-repeat bg-center"
+          style={{ 
+            backgroundImage: `url(${aboutBackground})`,
+            backgroundSize: '100% 100%'
+          }}
+        />
+        <div className="absolute inset-0 bg-black/40" />
 
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        {/* <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight animate-fade-in">
               <span className="bg-gradient-to-r from-orange-300 to-yellow-300 bg-clip-text text-transparent">
@@ -33,7 +40,7 @@ export default function About() {
               </span>
             </h1>
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* About Us Section */}

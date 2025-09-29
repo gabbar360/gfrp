@@ -28,6 +28,7 @@ import { HiMail } from 'react-icons/hi';
 import { cms } from '@/lib/cms';
 import { BlogPost } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
+import blogBackground from '@/assets/Blog.jpeg';
 
 const POSTS_PER_PAGE = 4;
 
@@ -110,16 +111,26 @@ export default function Blog() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <section className="bg-gradient-to-r from-secondary to-secondary/90 text-secondary-foreground py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-              Technical Blog
+      <section className="relative py-32 overflow-hidden h-[500px]">
+        <div 
+          className="absolute inset-0 bg-no-repeat bg-center"
+          style={{ 
+            backgroundImage: `url(${blogBackground})`,
+            backgroundSize: '100% 100%'
+          }}
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight animate-fade-in">
+              <span className="bg-gradient-to-r from-orange-300 to-yellow-300 bg-clip-text text-transparent">
+                TECHNICAL
+              </span>
+              <br />
+              <span className="text-5xl md:text-6xl text-orange-100">
+                BLOG
+              </span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-secondary-foreground/90">
-              Insights, innovations, and technical guidance from the world of
-              GFRP materials
-            </p>
           </div>
         </div>
       </section>
