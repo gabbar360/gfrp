@@ -107,7 +107,7 @@ export class LocalCMS {
         category: 'Technical',
         tags: ['GFRP', 'steel', 'comparison', 'construction'],
         featuredImage:
-          'https://images.unsplash.com/photo-1503389152951-9c3d0bca6b0d?auto=format&fit=crop&w=800&q=80', // GFRP rods
+          '/images/Blog/gfrp-vs-steel-advantages.png', // Custom image set by user
         readTime: 5,
       },
       {
