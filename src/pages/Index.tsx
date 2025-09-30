@@ -97,10 +97,10 @@ const HeroSlider = () => {
               >
                 Innovation
               </Badge> */}
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-orange-600 mb-4 sm:mb-8 leading-tight">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-primary mb-4 sm:mb-8 leading-tight">
                 VEGNAR GFRP - Leading Composite Solutions
               </h1>
-              <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-orange-600 mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-primary mb-6 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
                 Revolutionary Glass Fiber Reinforced Polymer technology
                 transforming construction industry with superior strength and
                 durability

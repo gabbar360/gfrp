@@ -7,32 +7,32 @@
 @layer base {
   :root {
     /* Base colors */
-    --background: 0 0% 98%;
+    --background: 25 15% 96%;
     --foreground: 213 27% 10%;
 
     /* Card system */
-    --card: 0 0% 100%;
+    --card: 25 20% 98%;
     --card-foreground: 213 27% 10%;
 
     /* Popover system */
-    --popover: 0 0% 100%;
+    --popover: 25 20% 98%;
     --popover-foreground: 213 27% 10%;
 
-    /* Primary - Engineering orange/amber */
-    --primary: 25 95% 53%;
+    /* Primary - Custom brown */
+    --primary: 22 42% 47%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 25 95% 65%;
+    --primary-glow: 22 42% 60%;
 
     /* Secondary - Professional navy */
     --secondary: 213 27% 10%;
     --secondary-foreground: 0 0% 98%;
 
     /* Muted grays */
-    --muted: 210 40% 96%;
+    --muted: 25 25% 94%;
     --muted-foreground: 215 15% 40%;
 
-    /* Accent - Light orange */
-    --accent: 25 85% 90%;
+    /* Accent - Light warm */
+    --accent: 25 35% 92%;
     --accent-foreground: 213 27% 10%;
 
     /* Status colors */
@@ -44,11 +44,11 @@
     /* Borders and inputs */
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 25 95% 53%;
+    --ring: 22 42% 47%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 25 15% 96%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
 
@@ -97,9 +97,9 @@
     --popover: 213 27% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 25 95% 53%;
+    --primary: 22 42% 47%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 25 95% 65%;
+    --primary-glow: 22 42% 60%;
 
     --secondary: 217 32% 17%;
     --secondary-foreground: 210 40% 98%;
@@ -115,7 +115,7 @@
 
     --border: 217 32% 17%;
     --input: 217 32% 17%;
-    --ring: 25 95% 53%;
+    --ring: 22 42% 47%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
